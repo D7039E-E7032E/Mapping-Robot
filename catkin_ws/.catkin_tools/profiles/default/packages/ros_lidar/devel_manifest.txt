@@ -1,0 +1,5 @@
+ros_lidar
+/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/ros_lidar/cmake.lock /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/./cmake.lock
+/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/ros_lidar/share/ros_lidar/cmake/ros_lidarConfig.cmake /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/share/ros_lidar/cmake/ros_lidarConfig.cmake
+/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/ros_lidar/share/ros_lidar/cmake/ros_lidarConfig-version.cmake /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/share/ros_lidar/cmake/ros_lidarConfig-version.cmake
+/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/ros_lidar/lib/pkgconfig/ros_lidar.pc /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/lib/pkgconfig/ros_lidar.pc
