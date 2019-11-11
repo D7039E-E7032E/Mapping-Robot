@@ -1,0 +1,44 @@
+In file included from [01m[K/usr/include/boost/bind.hpp:22:0[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/publisher.h:35[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/vision/Desktop/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_slam/include/turtlebot3_slam/flat_world_imu_node.h:20[m[K,
+                 from [01m[K/home/vision/Desktop/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_slam/src/flat_world_imu_node.cpp:17[m[K:
+[01m[K/usr/include/boost/bind/bind_cc.hpp:[m[K In function ‘[01m[Kboost::_bi::bind_t<R, R (*)(B1), typename boost::_bi::list_av_1<A1>::type> boost::bind(R (*)(B1), A1) [with R = ros::SerializedMessage; B1 = const sensor_msgs::Imu_<std::allocator<void> >&; A1 = boost::reference_wrapper<const sensor_msgs::Imu_<std::allocator<void> > >][m[K’:
+[01m[K/usr/include/boost/bind/bind_cc.hpp:26:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const sensor_msgs::Imu_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     [01;36m[KB[m[KOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1), A1 a1)
+     [01;36m[K^[m[K
+In file included from [01m[K/usr/include/boost/bind/bind.hpp:2126:0[m[K,
+                 from [01m[K/usr/include/boost/bind.hpp:22[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/publisher.h:35[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/vision/Desktop/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_slam/include/turtlebot3_slam/flat_world_imu_node.h:20[m[K,
+                 from [01m[K/home/vision/Desktop/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_slam/src/flat_world_imu_node.cpp:17[m[K:
+[01m[K/usr/include/boost/bind/bind_cc.hpp:30:58:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const sensor_msgs::Imu_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     return _bi::bind_t<R, F, list_type> (f, list_type(a1)[01;36m[K)[m[K;
+                                                          [01;36m[K^[m[K
+In file included from [01m[K/usr/include/boost/bind.hpp:22:0[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/publisher.h:35[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/vision/Desktop/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_slam/include/turtlebot3_slam/flat_world_imu_node.h:20[m[K,
+                 from [01m[K/home/vision/Desktop/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_slam/src/flat_world_imu_node.cpp:17[m[K:
+[01m[K/usr/include/boost/bind/bind.hpp:[m[K In constructor ‘[01m[Kboost::_bi::list1<A1>::list1(A1) [with A1 = boost::reference_wrapper<const sensor_msgs::Imu_<std::allocator<void> > >][m[K’:
+[01m[K/usr/include/boost/bind/bind.hpp:231:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const sensor_msgs::Imu_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     explicit [01;36m[Klist1[m[K( A1 a1 ): base_type( a1 ) {}
+              [01;36m[K^~~~~[m[K
+[01m[K/usr/include/boost/bind/bind.hpp:231:44:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const sensor_msgs::Imu_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     explicit list1( A1 a1 ): base_type( a1 [01;36m[K)[m[K {}
+                                            [01;36m[K^[m[K
+In file included from [01m[K/usr/include/boost/bind/bind.hpp:47:0[m[K,
+                 from [01m[K/usr/include/boost/bind.hpp:22[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/publisher.h:35[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/vision/Desktop/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_slam/include/turtlebot3_slam/flat_world_imu_node.h:20[m[K,
+                 from [01m[K/home/vision/Desktop/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_slam/src/flat_world_imu_node.cpp:17[m[K:
+[01m[K/usr/include/boost/bind/storage.hpp:[m[K In constructor ‘[01m[Kboost::_bi::storage1<A1>::storage1(A1) [with A1 = boost::reference_wrapper<const sensor_msgs::Imu_<std::allocator<void> > >][m[K’:
+[01m[K/usr/include/boost/bind/storage.hpp:42:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const sensor_msgs::Imu_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     explicit [01;36m[Kstorage1[m[K( A1 a1 ): a1_( a1 ) {}
+              [01;36m[K^~~~~~~~[m[K

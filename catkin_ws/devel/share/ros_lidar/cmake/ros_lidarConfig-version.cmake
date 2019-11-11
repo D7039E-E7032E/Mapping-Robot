@@ -1,0 +1,1 @@
+/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/ros_lidar/share/ros_lidar/cmake/ros_lidarConfig-version.cmake
