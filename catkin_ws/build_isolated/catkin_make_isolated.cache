@@ -1,0 +1,2 @@
+ros_lidar
+-G Ninja -DCATKIN_DEVEL_PREFIX=/home/robot/Mapping-Robot/catkin_ws/devel_isolated -DCMAKE_INSTALL_PREFIX=/home/robot/Mapping-Robot/catkin_ws/install_isolated
