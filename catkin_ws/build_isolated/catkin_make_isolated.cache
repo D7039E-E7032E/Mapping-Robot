@@ -1,2 +1,2 @@
-ros_lidar
+cartographer:cartographer_ros/cartographer_ros:cartographer_ros/cartographer_ros_msgs:cartographer_ros/cartographer_rviz:ceres-solver:ros_lidar:turtlebot3_simulations/turtlebot3_gazebo:turtlebot3_simulations/turtlebot3_simulations
 -G Ninja -DCATKIN_DEVEL_PREFIX=/home/robot/Mapping-Robot/catkin_ws/devel_isolated -DCMAKE_INSTALL_PREFIX=/home/robot/Mapping-Robot/catkin_ws/install_isolated

@@ -8,6 +8,7 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/ros_lidar:$CMAKE_PREFIX_PATH"
-export PWD="/home/robot/Mapping-Robot/catkin_ws/build_isolated/ros_lidar"
+export LD_LIBRARY_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/ros_lidar/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/ros_lidar/lib/pkgconfig:$PKG_CONFIG_PATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/ros_lidar/share/common-lisp"
 export ROS_PACKAGE_PATH="/home/robot/Mapping-Robot/catkin_ws/src/ros_lidar:$ROS_PACKAGE_PATH"

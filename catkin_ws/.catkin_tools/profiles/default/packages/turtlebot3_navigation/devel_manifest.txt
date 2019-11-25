@@ -1,5 +1,0 @@
-turtlebot3/turtlebot3_navigation
-/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/turtlebot3_navigation/cmake.lock /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/./cmake.lock
-/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/turtlebot3_navigation/share/turtlebot3_navigation/cmake/turtlebot3_navigationConfig-version.cmake /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/share/turtlebot3_navigation/cmake/turtlebot3_navigationConfig-version.cmake
-/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/turtlebot3_navigation/share/turtlebot3_navigation/cmake/turtlebot3_navigationConfig.cmake /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/share/turtlebot3_navigation/cmake/turtlebot3_navigationConfig.cmake
-/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/turtlebot3_navigation/lib/pkgconfig/turtlebot3_navigation.pc /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/lib/pkgconfig/turtlebot3_navigation.pc
