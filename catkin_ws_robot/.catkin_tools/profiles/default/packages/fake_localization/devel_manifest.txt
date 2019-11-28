@@ -1,0 +1,6 @@
+navigation/fake_localization
+/home/vision/catkin_ws_robot/devel/.private/fake_localization/cmake.lock /home/vision/catkin_ws_robot/devel/./cmake.lock
+/home/vision/catkin_ws_robot/devel/.private/fake_localization/share/fake_localization/cmake/fake_localizationConfig-version.cmake /home/vision/catkin_ws_robot/devel/share/fake_localization/cmake/fake_localizationConfig-version.cmake
+/home/vision/catkin_ws_robot/devel/.private/fake_localization/share/fake_localization/cmake/fake_localizationConfig.cmake /home/vision/catkin_ws_robot/devel/share/fake_localization/cmake/fake_localizationConfig.cmake
+/home/vision/catkin_ws_robot/devel/.private/fake_localization/lib/pkgconfig/fake_localization.pc /home/vision/catkin_ws_robot/devel/lib/pkgconfig/fake_localization.pc
+/home/vision/catkin_ws_robot/devel/.private/fake_localization/lib/fake_localization/fake_localization /home/vision/catkin_ws_robot/devel/lib/fake_localization/fake_localization

@@ -1,6 +1,0 @@
-turtlebot3/turtlebot3_teleop
-/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/turtlebot3_teleop/cmake.lock /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/./cmake.lock
-/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/turtlebot3_teleop/share/turtlebot3_teleop/cmake/turtlebot3_teleopConfig-version.cmake /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/share/turtlebot3_teleop/cmake/turtlebot3_teleopConfig-version.cmake
-/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/turtlebot3_teleop/share/turtlebot3_teleop/cmake/turtlebot3_teleopConfig.cmake /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/share/turtlebot3_teleop/cmake/turtlebot3_teleopConfig.cmake
-/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/turtlebot3_teleop/lib/pkgconfig/turtlebot3_teleop.pc /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/lib/pkgconfig/turtlebot3_teleop.pc
-/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/.private/turtlebot3_teleop/lib/python2.7/dist-packages/turtlebot3_teleop/__init__.py /home/vision/Desktop/Mapping-Robot/catkin_ws/devel/lib/python2.7/dist-packages/turtlebot3_teleop/__init__.py

@@ -1,0 +1,1 @@
+/home/vision/catkin_ws_robot/devel/.private/controller/share/common-lisp/ros/controller/msg/Dirvector.lisp

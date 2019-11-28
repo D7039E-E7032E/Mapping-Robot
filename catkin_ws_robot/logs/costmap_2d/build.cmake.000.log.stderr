@@ -1,0 +1,15 @@
+[31m[1mCMake Error[0m at /opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake:83 (find_package):
+  Could not find a package configuration file provided by "tf2_sensor_msgs"
+  with any of the following names:
+
+    tf2_sensor_msgsConfig.cmake
+    tf2_sensor_msgs-config.cmake
+
+  Add the installation prefix of "tf2_sensor_msgs" to CMAKE_PREFIX_PATH or
+  set "tf2_sensor_msgs_DIR" to a directory containing one of the above files.
+  If "tf2_sensor_msgs" provides a separate development package or SDK, be
+  sure it has been installed.
+[36mCall Stack (most recent call first):[0m
+  CMakeLists.txt:4 (find_package)
+
+
