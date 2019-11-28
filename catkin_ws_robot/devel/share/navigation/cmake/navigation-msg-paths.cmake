@@ -1,0 +1,1 @@
+/home/vision/catkin_ws_robot/devel/.private/controller/share/navigation/cmake/navigation-msg-paths.cmake

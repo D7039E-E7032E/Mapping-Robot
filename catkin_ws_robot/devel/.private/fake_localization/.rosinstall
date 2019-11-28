@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/vision/catkin_ws_robot/devel/.private/fake_localization/setup.sh

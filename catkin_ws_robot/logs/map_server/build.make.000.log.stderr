@@ -1,0 +1,148 @@
+In file included from [01m[K/usr/include/c++/7/vector:64:0[m[K,
+                 from [01m[K/usr/src/googletest/googletest/include/gtest/gtest.h:56[m[K,
+                 from [01m[K/usr/src/googletest/googletest/src/gtest-all.cc:39[m[K:
+[01m[K/usr/include/c++/7/bits/stl_vector.h:[m[K In copy constructor ‘[01m[Kstd::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = double; _Alloc = std::allocator<double>][m[K’:
+[01m[K/usr/include/c++/7/bits/stl_vector.h:331:31:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+    [01;36m[Kstd::__uninitialized_copy_a(__x.begin(), __x.end(),[m[K
+    [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+ [01;36m[K          this->_M_impl._M_start,[m[K
+           [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~[m[K
+ [01;36m[K          _M_get_Tp_allocator())[m[K;
+           [01;36m[K~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/7/vector:63:0[m[K,
+                 from [01m[K/usr/src/googletest/googletest/include/gtest/gtest.h:56[m[K,
+                 from [01m[K/usr/src/googletest/googletest/src/gtest-all.cc:39[m[K:
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:[m[K In function ‘[01m[K_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = __gnu_cxx::__normal_iterator<const double*, std::vector<double> >; _ForwardIterator = double*; _Tp = double][m[K’:
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:287:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+     [01;36m[K__uninitialized_copy_a[m[K(_InputIterator __first, _InputIterator __last,
+     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:287:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:289:63:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+     { return std::uninitialized_copy(__first, __last, __result[01;36m[K)[m[K; }
+                                                               [01;36m[K^[m[K
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:[m[K In function ‘[01m[K_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const double*, std::vector<double> >; _ForwardIterator = double*][m[K’:
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:115:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+     [01;36m[Kuninitialized_copy[m[K(_InputIterator __first, _InputIterator __last,
+     [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:115:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:134:41:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+  __uninit_copy(__first, __last, __result[01;36m[K)[m[K;
+                                         [01;36m[K^[m[K
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:[m[K In static member function ‘[01m[Kstatic _ForwardIterator std::__uninitialized_copy<true>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const double*, std::vector<double> >; _ForwardIterator = double*][m[K’:
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:99:9:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+         [01;36m[K__uninit_copy[m[K(_InputIterator __first, _InputIterator __last,
+         [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:99:9:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+[01m[K/usr/include/c++/7/bits/stl_uninitialized.h:101:53:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+         { return std::copy(__first, __last, __result[01;36m[K)[m[K; }
+                                                     [01;36m[K^[m[K
+In file included from [01m[K/usr/include/c++/7/bits/char_traits.h:39:0[m[K,
+                 from [01m[K/usr/include/c++/7/ios:40[m[K,
+                 from [01m[K/usr/include/c++/7/ostream:38[m[K,
+                 from [01m[K/usr/src/googletest/googletest/include/gtest/gtest.h:55[m[K,
+                 from [01m[K/usr/src/googletest/googletest/src/gtest-all.cc:39[m[K:
+[01m[K/usr/include/c++/7/bits/stl_algobase.h:[m[K In function ‘[01m[K_OI std::copy(_II, _II, _OI) [with _II = __gnu_cxx::__normal_iterator<const double*, std::vector<double> >; _OI = double*][m[K’:
+[01m[K/usr/include/c++/7/bits/stl_algobase.h:446:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+     [01;36m[Kcopy[m[K(_II __first, _II __last, _OI __result)
+     [01;36m[K^~~~[m[K
+[01m[K/usr/include/c++/7/bits/stl_algobase.h:446:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+[01m[K/usr/include/c++/7/bits/stl_algobase.h:456:18:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+         __result)[01;36m[K)[m[K;
+                  [01;36m[K^[m[K
+In file included from [01m[K/usr/include/c++/7/bits/stl_algobase.h:61:0[m[K,
+                 from [01m[K/usr/include/c++/7/bits/char_traits.h:39[m[K,
+                 from [01m[K/usr/include/c++/7/ios:40[m[K,
+                 from [01m[K/usr/include/c++/7/ostream:38[m[K,
+                 from [01m[K/usr/src/googletest/googletest/include/gtest/gtest.h:55[m[K,
+                 from [01m[K/usr/src/googletest/googletest/src/gtest-all.cc:39[m[K:
+[01m[K/usr/include/c++/7/bits/cpp_type_traits.h:[m[K In function ‘[01m[K_Iterator std::__miter_base(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<const double*, std::vector<double> >][m[K’:
+[01m[K/usr/include/c++/7/bits/cpp_type_traits.h:408:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+     [01;36m[K__miter_base[m[K(_Iterator __it)
+     [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/7/bits/char_traits.h:39:0[m[K,
+                 from [01m[K/usr/include/c++/7/ios:40[m[K,
+                 from [01m[K/usr/include/c++/7/ostream:38[m[K,
+                 from [01m[K/usr/src/googletest/googletest/include/gtest/gtest.h:55[m[K,
+                 from [01m[K/usr/src/googletest/googletest/src/gtest-all.cc:39[m[K:
+[01m[K/usr/include/c++/7/bits/stl_algobase.h:[m[K In function ‘[01m[K_OI std::__copy_move_a2(_II, _II, _OI) [with bool _IsMove = false; _II = __gnu_cxx::__normal_iterator<const double*, std::vector<double> >; _OI = double*][m[K’:
+[01m[K/usr/include/c++/7/bits/stl_algobase.h:420:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+     [01;36m[K__copy_move_a2[m[K(_II __first, _II __last, _OI __result)
+     [01;36m[K^~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/c++/7/bits/stl_algobase.h:420:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+In file included from [01m[K/usr/include/c++/7/bits/stl_algobase.h:67:0[m[K,
+                 from [01m[K/usr/include/c++/7/bits/char_traits.h:39[m[K,
+                 from [01m[K/usr/include/c++/7/ios:40[m[K,
+                 from [01m[K/usr/include/c++/7/ostream:38[m[K,
+                 from [01m[K/usr/src/googletest/googletest/include/gtest/gtest.h:55[m[K,
+                 from [01m[K/usr/src/googletest/googletest/src/gtest-all.cc:39[m[K:
+[01m[K/usr/include/c++/7/bits/stl_iterator.h:[m[K In function ‘[01m[K_Iterator std::__niter_base(__gnu_cxx::__normal_iterator<_Iterator, _Container>) [with _Iterator = const double*; _Container = std::vector<double>][m[K’:
+[01m[K/usr/include/c++/7/bits/stl_iterator.h:986:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[K__gnu_cxx::__normal_iterator<const double*, std::vector<double> >[m[K’ changed in GCC 7.1
+     [01;36m[K__niter_base[m[K(__gnu_cxx::__normal_iterator<_Iterator, _Container> __it)
+     [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/boost/bind.hpp:22:0[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/publisher.h:35[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/vision/catkin_ws_robot/src/navigation/map_server/src/main.cpp:43[m[K:
+[01m[K/usr/include/boost/bind/bind_cc.hpp:[m[K In function ‘[01m[Kboost::_bi::bind_t<R, R (*)(B1), typename boost::_bi::list_av_1<A1>::type> boost::bind(R (*)(B1), A1) [with R = ros::SerializedMessage; B1 = const nav_msgs::MapMetaData_<std::allocator<void> >&; A1 = boost::reference_wrapper<const nav_msgs::MapMetaData_<std::allocator<void> > >][m[K’:
+[01m[K/usr/include/boost/bind/bind_cc.hpp:26:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const nav_msgs::MapMetaData_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     [01;36m[KB[m[KOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1), A1 a1)
+     [01;36m[K^[m[K
+In file included from [01m[K/usr/include/boost/bind/bind.hpp:2126:0[m[K,
+                 from [01m[K/usr/include/boost/bind.hpp:22[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/publisher.h:35[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/vision/catkin_ws_robot/src/navigation/map_server/src/main.cpp:43[m[K:
+[01m[K/usr/include/boost/bind/bind_cc.hpp:30:58:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const nav_msgs::MapMetaData_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     return _bi::bind_t<R, F, list_type> (f, list_type(a1)[01;36m[K)[m[K;
+                                                          [01;36m[K^[m[K
+In file included from [01m[K/usr/include/boost/bind.hpp:22:0[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/publisher.h:35[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/vision/catkin_ws_robot/src/navigation/map_server/src/main.cpp:43[m[K:
+[01m[K/usr/include/boost/bind/bind_cc.hpp:[m[K In function ‘[01m[Kboost::_bi::bind_t<R, R (*)(B1), typename boost::_bi::list_av_1<A1>::type> boost::bind(R (*)(B1), A1) [with R = ros::SerializedMessage; B1 = const nav_msgs::OccupancyGrid_<std::allocator<void> >&; A1 = boost::reference_wrapper<const nav_msgs::OccupancyGrid_<std::allocator<void> > >][m[K’:
+[01m[K/usr/include/boost/bind/bind_cc.hpp:26:5:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const nav_msgs::OccupancyGrid_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     [01;36m[KB[m[KOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1), A1 a1)
+     [01;36m[K^[m[K
+In file included from [01m[K/usr/include/boost/bind/bind.hpp:2126:0[m[K,
+                 from [01m[K/usr/include/boost/bind.hpp:22[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/publisher.h:35[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/vision/catkin_ws_robot/src/navigation/map_server/src/main.cpp:43[m[K:
+[01m[K/usr/include/boost/bind/bind_cc.hpp:30:58:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const nav_msgs::OccupancyGrid_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     return _bi::bind_t<R, F, list_type> (f, list_type(a1)[01;36m[K)[m[K;
+                                                          [01;36m[K^[m[K
+In file included from [01m[K/usr/include/boost/bind.hpp:22:0[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/publisher.h:35[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/vision/catkin_ws_robot/src/navigation/map_server/src/main.cpp:43[m[K:
+[01m[K/usr/include/boost/bind/bind.hpp:[m[K In constructor ‘[01m[Kboost::_bi::list1<A1>::list1(A1) [with A1 = boost::reference_wrapper<const nav_msgs::MapMetaData_<std::allocator<void> > >][m[K’:
+[01m[K/usr/include/boost/bind/bind.hpp:231:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const nav_msgs::MapMetaData_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     explicit [01;36m[Klist1[m[K( A1 a1 ): base_type( a1 ) {}
+              [01;36m[K^~~~~[m[K
+[01m[K/usr/include/boost/bind/bind.hpp:231:44:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const nav_msgs::MapMetaData_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     explicit list1( A1 a1 ): base_type( a1 [01;36m[K)[m[K {}
+                                            [01;36m[K^[m[K
+[01m[K/usr/include/boost/bind/bind.hpp:[m[K In constructor ‘[01m[Kboost::_bi::list1<A1>::list1(A1) [with A1 = boost::reference_wrapper<const nav_msgs::OccupancyGrid_<std::allocator<void> > >][m[K’:
+[01m[K/usr/include/boost/bind/bind.hpp:231:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const nav_msgs::OccupancyGrid_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     explicit [01;36m[Klist1[m[K( A1 a1 ): base_type( a1 ) {}
+              [01;36m[K^~~~~[m[K
+[01m[K/usr/include/boost/bind/bind.hpp:231:44:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const nav_msgs::OccupancyGrid_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     explicit list1( A1 a1 ): base_type( a1 [01;36m[K)[m[K {}
+                                            [01;36m[K^[m[K
+In file included from [01m[K/usr/include/boost/bind/bind.hpp:47:0[m[K,
+                 from [01m[K/usr/include/boost/bind.hpp:22[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/publisher.h:35[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/vision/catkin_ws_robot/src/navigation/map_server/src/main.cpp:43[m[K:
+[01m[K/usr/include/boost/bind/storage.hpp:[m[K In constructor ‘[01m[Kboost::_bi::storage1<A1>::storage1(A1) [with A1 = boost::reference_wrapper<const nav_msgs::MapMetaData_<std::allocator<void> > >][m[K’:
+[01m[K/usr/include/boost/bind/storage.hpp:42:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const nav_msgs::MapMetaData_<std::allocator<void> > >[m[K’ changed in GCC 7.1
+     explicit [01;36m[Kstorage1[m[K( A1 a1 ): a1_( a1 ) {}
+              [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/boost/bind/storage.hpp:[m[K In constructor ‘[01m[Kboost::_bi::storage1<A1>::storage1(A1) [with A1 = boost::reference_wrapper<const nav_msgs::OccupancyGrid_<std::allocator<void> > >][m[K’:
+[01m[K/usr/include/boost/bind/storage.hpp:42:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kboost::reference_wrapper<const nav_msgs::OccupancyGrid_<std::allocator<void> > >[m[K’ changed in GCC 7.1

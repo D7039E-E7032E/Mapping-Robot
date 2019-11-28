@@ -1,2 +1,0 @@
-/home/vision/catkin_ws_2/devel/./cmake.lock 59
-/home/vision/Desktop/Mapping-Robot/catkin_ws/devel/./cmake.lock 9

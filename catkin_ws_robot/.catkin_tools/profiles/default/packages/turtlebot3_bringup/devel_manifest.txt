@@ -1,0 +1,6 @@
+turtlebot3_bringup
+/home/vision/catkin_ws_robot/devel/.private/turtlebot3_bringup/cmake.lock /home/vision/catkin_ws_robot/devel/./cmake.lock
+/home/vision/catkin_ws_robot/devel/.private/turtlebot3_bringup/share/turtlebot3_bringup/cmake/turtlebot3_bringupConfig.cmake /home/vision/catkin_ws_robot/devel/share/turtlebot3_bringup/cmake/turtlebot3_bringupConfig.cmake
+/home/vision/catkin_ws_robot/devel/.private/turtlebot3_bringup/share/turtlebot3_bringup/cmake/turtlebot3_bringupConfig-version.cmake /home/vision/catkin_ws_robot/devel/share/turtlebot3_bringup/cmake/turtlebot3_bringupConfig-version.cmake
+/home/vision/catkin_ws_robot/devel/.private/turtlebot3_bringup/lib/pkgconfig/turtlebot3_bringup.pc /home/vision/catkin_ws_robot/devel/lib/pkgconfig/turtlebot3_bringup.pc
+/home/vision/catkin_ws_robot/devel/.private/turtlebot3_bringup/lib/turtlebot3_bringup/turtlebot3_diagnostics /home/vision/catkin_ws_robot/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics
