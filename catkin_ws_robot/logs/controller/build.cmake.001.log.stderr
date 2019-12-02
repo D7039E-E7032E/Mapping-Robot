@@ -1,0 +1,10 @@
+[31m[1mCMake Error[0m at /opt/ros/melodic/share/catkin/cmake/catkin_package_xml.cmake:54 (message):
+  catkin_package_xml() package name 'controller' in
+  '/home/vision/catkin_ws_robot/src/controller/package.xml' does not match
+  current PROJECT_NAME 'navigation'.  You must call project() with the same
+  package name before.
+[36mCall Stack (most recent call first):[0m
+  /opt/ros/melodic/share/catkin/cmake/catkin_package.cmake:99 (catkin_package_xml)
+  CMakeLists.txt:108 (catkin_package)
+
+

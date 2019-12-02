@@ -76,6 +76,7 @@
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/configuration_files/transform.lua
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/configuration_files/visualize_pbstream.lua
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch
+#/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch/amcl.launch
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch/assets_writer_backpack_2d.launch
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch/assets_writer_backpack_3d.launch
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch/assets_writer_ros_map.launch
@@ -90,6 +91,7 @@
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch/demo_taurob_tracker.launch
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch/grpc_demo_backpack_2d.launch
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch/grpc_demo_backpack_2d_localization.launch
+#/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch/move_base.launch
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch/offline_backpack_2d.launch
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch/offline_backpack_3d.launch
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/launch/taurob_tracker.launch
