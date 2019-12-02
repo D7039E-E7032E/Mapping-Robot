@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_description/setup.sh
