@@ -51,6 +51,7 @@
           -configuration_basename lidar_turtlebot.lua"
       output="screen">
 
+    <remap from="odom_frame" to="odom" />
     <remap from="base_scan" to="scan" />
     <remap from="imu_link" to="imu" />
   </node>
