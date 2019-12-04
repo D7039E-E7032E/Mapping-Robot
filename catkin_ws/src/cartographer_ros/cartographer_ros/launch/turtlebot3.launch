@@ -32,11 +32,11 @@
 
   <!-- AMCL -->
   <include file="$(find cartographer_ros)/launch/amcl.launch"/>
-
+ 
   <!-- move_base -->
   <include file="$(find cartographer_ros)/launch/move_base.launch">
     <arg name="model" value="$(arg model)" />
-  </include>
+  </include> 
 
   <!-- rviz -->
   <group if="$(arg open_rviz)"> 
@@ -44,16 +44,13 @@
           args="-d $(find cartographer_ros)/rviz/lidar_turtlebot3.rviz"/>
   </group>  
 
-  <!-- Cartographer -->
-  <node name="cartographer_node" pkg="cartographer_ros"
+   <!-- Cartographer -->
+   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find cartographer_ros)/configuration_files
           -configuration_basename lidar_turtlebot.lua"
       output="screen">
 
-    <remap from="odom_frame" to="odom" />
-    <remap from="base_scan" to="scan" />
-    <remap from="imu_link" to="imu" />
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
