@@ -1,1 +1,0 @@
-/home/vision/catkin_ws_robot/devel/.private/controller/share/roseus/ros/controller/msg/Dirvector.l

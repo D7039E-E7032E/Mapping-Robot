@@ -1,1 +1,0 @@
-/home/vision/catkin_ws_robot/devel/.private/fake_localization/share/fake_localization/cmake/fake_localizationConfig.cmake
