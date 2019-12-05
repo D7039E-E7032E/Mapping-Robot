@@ -3,17 +3,22 @@ import numpy as np
 from PIL import Image
 
 def hough(im, ntx=2000, mry=1600):
-    "Calculate Hough transform."
+    """
+    Calculate Hough transform.
+
+    ntx and mry is the resolution for the image.
+    More complex images require higher resolution
+	"""
     pim = im.load()
     nimx, mimy = im.size
     mry = int(mry/2)*2          #Make sure that this is even
     him = Image.new("L", (ntx, mry), 255)
     phim = him.load()
- 
+
     rmax = hypot(nimx, mimy)
     dr = rmax / (mry/2)
     dth = pi / ntx
- 
+
     for jx in xrange(nimx):
         for iy in xrange(mimy):
             col = pim[jx, iy]
@@ -25,7 +30,8 @@ def hough(im, ntx=2000, mry=1600):
                 phim[jtx, iry] -= 1
     return him
 
-im = Image.open('../Images/map2.pgm').convert('L')
+
+im = Image.open('../Images/map2.pgm').convert('L') #Loads the image and makes it grayscale
 him = hough(im)
 him.save('../Images/ho2.bmp')
 im.close()

@@ -3,6 +3,7 @@ import numpy as np
 import math
 from scipy import ndimage
 
+
 def periodic_corr_np(x, y):
     """Periodic correlation, implemented using np.correlate.
 
@@ -12,20 +13,33 @@ def periodic_corr_np(x, y):
 
 
 def make2houghP(img):
+    """
+    Inputs an opened image and returns the result of a probabilistic
+    hough transform converted back to the xy-plane
+    """
     #gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     edges = cv2.Canny(img,100,200,True)
 
     return cv2.HoughLinesP(edges,1,np.pi/180,30, maxLineGap=15,minLineLength=20)
 
 def make2hough(img):
+    """
+    Inputs an opened image and returns the result of a hough transform
+    in the (tho,theta)-plane
+    """
     #gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     edges = cv2.Canny(img,800,1200,True)
-    cv2.imshow('edges', edges)
+    cv2.imshow('edges', edges) #Shows the detected edges
     cv2.waitKey(0)
     return cv2.HoughLines(edges,1,np.pi/90,70)
 
 
+
 def vizHoughP(hough, img, saveFile):
+    """
+    Vizualizes  a Probablistic hough transform on top of an image and
+    is saved
+    """
     for lns in hough:
         for x1,y1,x2,y2 in lns:
             cv2.line(img,(x1,y1),(x2,y2),(0,255,0),2)
@@ -33,6 +47,9 @@ def vizHoughP(hough, img, saveFile):
     cv2.imwrite(saveFile,img)
 
 def vizHough(hough, img, saveFile):
+	"""
+	Vizualizes a hough transform on top of an image and is saved
+	"""
     for lns in hough:
         for rho,theta in lns:
             a = np.cos(theta)
@@ -48,13 +65,18 @@ def vizHough(hough, img, saveFile):
 
     cv2.imwrite(saveFile,img)
 
+
 def rotateP(hough, img, saveFile):
-    largestId = 0 
+	"""
+	Rotates a probabilistic hough transform by finding the longest vector and
+	turns it to be horizontal
+	"""
+    largestId = 0
     largestLen = 0
     i = 0
     for lns in hough:
         for x1,y1,x2,y2 in lns:
-            len = math.sqrt(math.pow(x1-x2,2)+math.pow(y1-y2,2)) 
+            len = math.sqrt(math.pow(x1-x2,2)+math.pow(y1-y2,2))
             if len > largestLen:
                 largestId = i
                 largestLen = len
@@ -73,15 +95,17 @@ def rotateP(hough, img, saveFile):
     img_rotated = ndimage.rotate(img, median_angle)
 
     print "Angle is {}".format(median_angle)
-    cv2.imwrite(saveFile, img_rotated) 
- 
+    cv2.imwrite(saveFile, img_rotated)
+
 
 img = cv2.imread('../Images/map.pgm')
 lines = make2hough(img)
 vizHough(lines, img, '../Images/hough.jpg')
+vizHoughP(lines, img, '../Images/houghP.jpg')
 #rotateP(lines, img, 'hough_rotate.jpg')
 
 img2 = cv2.imread('../Images/map2.pgm')
 lines2 = make2hough(img2)
 vizHough(lines2, img2, '../Images/hough2.jpg')
+vizHoughP(lines2, img2, '../Images/houghP2.jpg')
 #rotateP(lines2, img2, 'hough2_rotate.jpg')
