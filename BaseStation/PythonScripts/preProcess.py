@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import math
 from scipy import ndimage
-
+from PIL import Image
 
 def periodic_corr_np(x, y):
     """Periodic correlation, implemented using np.correlate.
@@ -98,14 +98,13 @@ def rotateP(hough, img, saveFile):
     cv2.imwrite(saveFile, img_rotated)
 
 
+
 img = cv2.imread('../Images/map.pgm')
 lines = make2hough(img)
 vizHough(lines, img, '../Images/hough.jpg')
-vizHoughP(lines, img, '../Images/houghP.jpg')
 #rotateP(lines, img, 'hough_rotate.jpg')
 
 img2 = cv2.imread('../Images/map2.pgm')
 lines2 = make2hough(img2)
 vizHough(lines2, img2, '../Images/hough2.jpg')
-vizHoughP(lines2, img2, '../Images/houghP2.jpg')
 #rotateP(lines2, img2, 'hough2_rotate.jpg')
