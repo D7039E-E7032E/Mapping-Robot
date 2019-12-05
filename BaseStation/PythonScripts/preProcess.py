@@ -76,12 +76,12 @@ def rotateP(hough, img, saveFile):
     cv2.imwrite(saveFile, img_rotated) 
  
 
-img = cv2.imread('map.pgm')
+img = cv2.imread('../Images/map.pgm')
 lines = make2hough(img)
-vizHough(lines, img, 'hough.jpg')
+vizHough(lines, img, '../Images/hough.jpg')
 #rotateP(lines, img, 'hough_rotate.jpg')
 
-img2 = cv2.imread('map2.pgm')
+img2 = cv2.imread('../Images/map2.pgm')
 lines2 = make2hough(img2)
-vizHough(lines2, img2, 'hough2.jpg')
+vizHough(lines2, img2, '../Images/hough2.jpg')
 #rotateP(lines2, img2, 'hough2_rotate.jpg')
