@@ -3,7 +3,7 @@ import numpy as np
 from PIL import Image
 import cv2
 
-def hough(im, ntx=850, mry=480):
+def hough(im, ntx=1280, mry=720):
     """
     Calculate Hough transform.
 
@@ -51,7 +51,7 @@ def avg(im):
 				#print y
 				#print "\n"
 				tot -= pim[x,y]
-		pnim[x, tot/i] = 0
+		pnim[x, -tot/i] = 0
 	return nim
 
 def tIFmax(im):
@@ -67,8 +67,27 @@ def tIFmax(im):
 	    pnim[x, max] = 0
 	return nim
 
-img = cv2.imread('../Images/map.pgm')
-img2 = cv2.imread('../Images/map2.pgm')
+def extendImage(img, larger):
+    size = larger.size
+    layer = Image.new('L', size, 205)
+    layer.paste(img, tuple(map(lambda x:(x[0]-x[1])/2, zip(size, img.size))))
+    layer.save('../Images/extended.pgm')
+
+
+img = Image.open('../Images/map.pgm')
+img2 = Image.open('../Images/map2.pgm')
+
+if img.size > img2.size:
+	extendImage(img2, img)
+	img = cv2.imread('../Images/map.pgm')
+	img2 = cv2.imread('../Images/extended.pgm')
+elif img.size < img2.size:
+	extendImage(img, img2)
+	img = cv2.imread('../Images/extended.pgm')
+	img2 = cv2.imread('../Images/map2.pgm')
+else:
+	img = cv2.imread('../Images/map.pgm')
+	img2 = cv2.imread('../Images/map2.pgm')
 
 detectEdges(img, '../Images/edgesH.png')
 detectEdges(img2, '../Images/edges2H.png')
