@@ -1,4 +1,4 @@
-from math import hypot, pi, cos, sin
+from math import hypot, pi, cos, sin, tan
 import numpy as np
 from PIL import Image, ImageDraw
 import cv2
@@ -131,6 +131,44 @@ def find_peaks(arr):
 			peaks.append(i)
 			last = i
 	return peaks
+def find_local_peaks(lst, hImg, gate):
+	pImg = hImg.load()
+	size = len(lst)
+	imx, imy = hImg.size
+	peaks = []
+	P = []
+	last = 0
+	for i in range(size):
+		if not peaks:
+			peaks.append((0, lst[0]))
+		elif lst[i] < lst[last] and i-last < gate:
+			peaks[len(peaks)-1] = (i, lst[i])
+			last = i
+		elif i-last >= gate and lst[i] != lst[last]:
+			peaks.append((i, lst[i]))
+			last = i
+	for th,v in peaks: #Theta, value
+		for p in range(imy): # Rho
+			if pImg[th,p] == v:
+				P.append((th, p, v))
+				break
+			elif p == imy-1:
+				print "NOT FOUND AT %d" % th
+	return P
+
+def mhh(P1, P2, vgate):
+	C = []
+	phi = 0
+	for i in range(len(P1)):
+		argmin = (1000, -1)
+		for j in range(len(P2)):
+			if abs(P1[i][2]-P2[j][2]) < argmin[0]:
+				argmin = (abs(P1[i][2]-P2[j][2]), j)
+		if argmin[0] < vgate:
+			C.append((i, argmin[1]))
+	for i,j in C:
+		phi = phi - ((1/tan(P1[i][0]))-(1/tan(P1[j][0])))
+	return phi/len(C)
 
 img = Image.open('../Images/map.pgm')
 img2 = Image.open('../Images/map2.pgm')
@@ -157,7 +195,6 @@ tIF.save('../Images/tIF.bmp')
 tIFma, arrM = tIFmax(him)
 tIFma.save('../Images/tIFmax.bmp')
 him.save('../Images/ho.bmp')
-im.close()
 
 im2 = Image.open('../Images/edges2H.png').convert('L') #Loads the image and makes it grayscale
 him2 = hough(im2)
@@ -166,7 +203,6 @@ tIF.save('../Images/tIF2.bmp')
 tIFmax2, arrM2 = tIFmax(him2)
 tIFmax2.save('../Images/tIFmax2.bmp')
 him2.save('../Images/ho2.bmp')
-im2.close()
 
 
 corrM = periodic_corr_np(arrM, arrM2)
@@ -194,8 +230,24 @@ for x in range(len(arrFP)):
 corr2Img(corrM, '../Images/maxCorr.bmp')
 corr2Img(corrA, '../Images/avgCorr.bmp')
 
-img = cv2.imread('../Images/map.pgm')
+img = cv2.imread('../Images/map2.pgm')
+
+
+lp = find_local_peaks(arrM, him, 100)
+lp2 = find_local_peaks(arrM2, him2, 100)
+
+phiH = mhh(lp, lp2, 15)
+phi = 360
 
 for x in arrFP:
-	rotated = ndimage.rotate(img, x, cval = 205)
-	cv2.imwrite('../Images/rotated_%d_degrees.bmp' % x, rotated)
+	rotated = ndimage.rotate(img, -x, cval = 205)
+    cv2.imwrite('../Images/rotated_%d_degrees.bmp' % x, rotated)
+
+	if abs(x - phiH) < phi:
+		phi = x
+
+rotated = ndimage.rotate(img, -phi, cval = 205)
+cv2.imwrite('../Images/rotated.bmp', rotated)
+
+im.close()
+im2.close()
