@@ -3,7 +3,10 @@ to run scripts these dependencies are needen.
 PIL --> pip install pillow
 numpy --> pip install numpy
 scipy --> pip install scipy
-cv2 --> pip install opencv
+cv2 --> pip install opencv 
 
 to install all at the same time run:
   pip install pillow numpy scipy opencv
+
+if error when installing opencv try
+pip install opencv-python
