@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Own definitions
+/BaseStation/Images/rotated*
+/BaseStation/Images/*Corr*
+/BaseStation/Images/tIF*
+*.swp
