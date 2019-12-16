@@ -215,7 +215,7 @@ corrA = periodic_corr_np(arrA, arrA2)
 arrFP = find_peaks(corrM)
 for x in range(len(arrFP)):
 	arrFP[x] = ((arrFP[x]/1280.0)*180)-90
-
+print arrFP
 
 #indA = np.argmax(corrA)
 #indA = ((indA/1280.0)*180)-90
@@ -241,7 +241,7 @@ phi = 360
 
 for x in arrFP:
 	rotated = ndimage.rotate(img, -x, cval = 205)
-    cv2.imwrite('../Images/rotated_%d_degrees.bmp' % x, rotated)
+	cv2.imwrite('../Images/rotated_%d_degrees.bmp' % x, rotated)
 
 	if abs(x - phiH) < phi:
 		phi = x
