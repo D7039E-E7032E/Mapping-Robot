@@ -4,6 +4,10 @@ from PIL import Image, ImageDraw
 import cv2
 from numpy.fft import fft, ifft
 from scipy import ndimage
+from time import gmtime
+from os import remove
+from glob import glob
+from sys import argv, exit
 
 def hough(im, ntx=1280, mry=720):
     """
@@ -28,14 +32,14 @@ def hough(im, ntx=1280, mry=720):
             if col == 0: continue
             for jtx in xrange(ntx):
                 th = dth * jtx
-                th = th - (pi/2)
+                #th = th - (pi/2)
                 r = jx*cos(th) + iy*sin(th)
                 iry = mry/2 + int(r/dr+0.5)
                 phim[jtx, iry] -= 1
     return him
 
 def detectEdges(img, savePath):
-	edges = cv2.Canny(img,100,200,True)
+	edges = cv2.Canny(img,500,200,True)
 	cv2.imwrite(savePath, edges)
 
 def avg(im):
@@ -167,23 +171,39 @@ def mhh(P1, P2, vgate):
 		if argmin[0] < vgate:
 			C.append((i, argmin[1]))
 	for i,j in C:
-		phi = phi - ((1/tan(P1[i][0]))-(1/tan(P1[j][0])))
+		th1 = ((P1[i][0]/1280.0)*180)-90
+		th2 = ((P2[j][0]/1280.0)*180)-90
+		if th1 == 0:
+			th1 = 1
+		if th2 == 0:
+			th2 = 1
+		phi = phi - ((1/tan(th1))-(1/tan(th2)))
+		print phi
 	return phi/len(C)
 
-img = Image.open('../Images/map.pgm')
-img2 = Image.open('../Images/map2.pgm')
+files = glob('../Images/rotated_*')
+for f in files:
+	remove(f)
+
+st = gmtime().tm_sec
+if len(argv) == 3:
+	img = Image.open('../Images/%s.pgm' % argv[1])
+	img2 = Image.open('../Images/%s.pgm' % argv[2])
+else:
+	print 'Please pass in the name of the two maps to be merged without the extention'
+	exit()
 
 if img.size > img2.size:
 	extendImage(img2, img)
-	img = cv2.imread('../Images/map.pgm')
+	img = cv2.imread('../Images/%s.pgm' % argv[1])
 	img2 = cv2.imread('../Images/extended.pgm')
 elif img.size < img2.size:
 	extendImage(img, img2)
 	img = cv2.imread('../Images/extended.pgm')
-	img2 = cv2.imread('../Images/map2.pgm')
+	img2 = cv2.imread('../Images/%s.pgm' % argv[2])
 else:
-	img = cv2.imread('../Images/map.pgm')
-	img2 = cv2.imread('../Images/map2.pgm')
+	img = cv2.imread('../Images/%s.pgm' % argv[1])
+	img2 = cv2.imread('../Images/%s.pgm' % argv[2])
 
 detectEdges(img, '../Images/edgesH.png')
 detectEdges(img2, '../Images/edges2H.png')
@@ -230,20 +250,24 @@ print arrFP
 corr2Img(corrM, '../Images/maxCorr.bmp')
 corr2Img(corrA, '../Images/avgCorr.bmp')
 
-img = cv2.imread('../Images/map2.pgm')
+img = cv2.imread('../Images/%s.pgm' % argv[2])
 
 
 lp = find_local_peaks(arrM, him, 100)
 lp2 = find_local_peaks(arrM2, him2, 100)
 
+
 phiH = mhh(lp, lp2, 15)
+print phiH
+ab = 360
 phi = 360
 
 for x in arrFP:
 	rotated = ndimage.rotate(img, -x, cval = 205)
 	cv2.imwrite('../Images/rotated_%d_degrees.bmp' % x, rotated)
 
-	if abs(x - phiH) < phi:
+	if abs(x - phiH) < ab:
+		ab = abs(x - phiH)
 		phi = x
 
 rotated = ndimage.rotate(img, -phi, cval = 205)
@@ -251,3 +275,9 @@ cv2.imwrite('../Images/rotated.bmp', rotated)
 
 im.close()
 im2.close()
+
+ct = gmtime().tm_sec
+dt = ct-st
+if dt < 0:
+	dt += 60
+print "%d seconds to complete" % dt
