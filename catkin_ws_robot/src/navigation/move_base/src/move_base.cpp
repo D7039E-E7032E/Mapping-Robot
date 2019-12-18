@@ -88,7 +88,7 @@ namespace move_base {
     planner_thread_ = new boost::thread(boost::bind(&MoveBase::planThread, this));
 
     //for commanding the base
-    vel_pub_ = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
+    //vel_pub_ = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
     current_goal_pub_ = private_nh.advertise<geometry_msgs::PoseStamped>("current_goal", 0 );
 
     ros::NodeHandle action_nh("move_base");
@@ -493,7 +493,7 @@ namespace move_base {
     cmd_vel.linear.x = 0.0;
     cmd_vel.linear.y = 0.0;
     cmd_vel.angular.z = 0.0;
-    vel_pub_.publish(cmd_vel);
+    //vel_pub_.publish(cmd_vel);
   }
 
   bool MoveBase::isQuaternionValid(const geometry_msgs::Quaternion& q){
@@ -902,7 +902,7 @@ namespace move_base {
                            cmd_vel.linear.x, cmd_vel.linear.y, cmd_vel.angular.z );
           last_valid_control_ = ros::Time::now();
           //make sure that we send the velocity command to the base
-          vel_pub_.publish(cmd_vel);
+          //vel_pub_.publish(cmd_vel);
           if(recovery_trigger_ == CONTROLLING_R)
             recovery_index_ = 0;
         }
