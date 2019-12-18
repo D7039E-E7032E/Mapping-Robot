@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Moving to catkin_ws.."
+cd /home/vision/catkin_ws/
+echo "Sourcing setup file.."
+source devel/setup.bash
+echo "Starting turtlebot3_slam turlebot3_slam.launch file"
+echo "slam_methods:=cartographer"
+roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=cartographer
+
+
