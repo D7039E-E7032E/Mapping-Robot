@@ -1,0 +1,8 @@
+#!/bin/bash 
+
+echo "Moving to catkin_ws.."
+cd /home/vision/catkin_ws/
+echo "Sourcing setup file.."
+source devel/setup.bash
+echo "Starting turtlebot3_bringup turtlebot3_robot.launch file"
+roslaunch turtlebot3_bringup turtlebot3_robot.launch
