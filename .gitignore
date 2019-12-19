@@ -108,3 +108,6 @@ venv.bak/
 /BaseStation/Images/*Corr*
 /BaseStation/Images/tIF*
 *.swp
+/BaseStation/Images/extend*
+/BaseStation/Images/ho*
+/BaseStation/Images/edges*

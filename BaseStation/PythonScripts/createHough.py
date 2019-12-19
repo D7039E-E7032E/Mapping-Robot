@@ -86,11 +86,15 @@ def tIFmax(im):
 	return nim, arr
 
 
-def extendImage(img, larger):
-    size = larger.size
-    layer = Image.new('L', size, 205)
-    layer.paste(img, tuple(map(lambda x:(x[0]-x[1])/2, zip(size, img.size))))
-    layer.save('../Images/extended.pgm')
+def extendImage(img):
+
+	nimx, mimy = img.size
+	rmax = int(hypot(nimx, mimy))
+	size = (rmax,rmax)
+
+	layer = Image.new('L', size, 205)
+	layer.paste(img, tuple(map(lambda x:(x[0]-x[1])/2, zip(size, img.size))))
+	return layer
 def periodic_corr(x, y):
 	"""Periodic correlation, implemented using the FFT.
 
@@ -193,17 +197,14 @@ else:
 	print 'Please pass in the name of the two maps to be merged without the extention'
 	exit()
 
-if img.size > img2.size:
-	extendImage(img2, img)
-	img = cv2.imread('../Images/%s.pgm' % argv[1])
-	img2 = cv2.imread('../Images/extended.pgm')
-elif img.size < img2.size:
-	extendImage(img, img2)
-	img = cv2.imread('../Images/extended.pgm')
-	img2 = cv2.imread('../Images/%s.pgm' % argv[2])
-else:
-	img = cv2.imread('../Images/%s.pgm' % argv[1])
-	img2 = cv2.imread('../Images/%s.pgm' % argv[2])
+img = extendImage(img)
+img2 = extendImage(img2)
+
+img.save('../Images/extend.png')
+img2.save('../Images/extend2.png')
+
+img = cv2.imread('../Images/extend.png')
+img2 = cv2.imread('../Images/extend2.png')
 
 detectEdges(img, '../Images/edgesH.png')
 detectEdges(img2, '../Images/edges2H.png')
@@ -250,7 +251,7 @@ print arrFP
 corr2Img(corrM, '../Images/maxCorr.bmp')
 corr2Img(corrA, '../Images/avgCorr.bmp')
 
-img = cv2.imread('../Images/%s.pgm' % argv[2])
+img = cv2.imread('../Images/extend2.png')
 
 
 lp = find_local_peaks(arrM, him, 100)
@@ -275,6 +276,11 @@ cv2.imwrite('../Images/rotated.bmp', rotated)
 
 im.close()
 im2.close()
+
+detectEdges(rotated, '../Images/edgesR.png')
+imR = Image.open('../Images/edgesR.png').convert('L')
+himR = hough(imR)
+himR.save('../Images/hoR.bmp')
 
 ct = gmtime().tm_sec
 dt = ct-st
