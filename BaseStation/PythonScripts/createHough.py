@@ -39,7 +39,7 @@ def hough(im, ntx=1280, mry=720):
     return him
 
 def detectEdges(img, savePath):
-	edges = cv2.Canny(img,500,200,True)
+	edges = cv2.Canny(img,500,800,True)
 	cv2.imwrite(savePath, edges)
 
 def avg(im):
@@ -94,7 +94,17 @@ def extendImage(img):
 
 	layer = Image.new('L', size, 205)
 	layer.paste(img, tuple(map(lambda x:(x[0]-x[1])/2, zip(size, img.size))))
-	return layer
+	return layer, rmax
+
+def extendImage2(img, rmax):
+
+    nimx, mimy = img.size
+    size = (rmax,rmax)
+
+    layer = Image.new('L', size, 205)
+    layer.paste(img, tuple(map(lambda x:(x[0]-x[1])/2, zip(size, img.size))))
+    return layer
+
 def periodic_corr(x, y):
 	"""Periodic correlation, implemented using the FFT.
 
@@ -121,9 +131,9 @@ def corr2Img(arr, saveFile):
 		pnim[x, int(arr[x])] = 0
 	nim.save(saveFile)
 
-def find_peaks(arr):
+def find_peaks(arr, gate):
 	"""
-	Finds the peaks with a minimum distance of 200 between them
+	Finds the peaks with a minimum distance of the gate between them
 	Outputs a list of the location of the peaks
 	"""
 	size = arr.size
@@ -132,12 +142,13 @@ def find_peaks(arr):
 	for i in range(size):
 		if not peaks:
 			peaks.append(0)
-		elif arr[i] > arr[last] and i-last < 200:
+		elif arr[i] > arr[last] and i-last < gate:
 			peaks[len(peaks)-1] = i
 			last = i
-		elif i-last >= 200 and arr[i] != arr[last]:
+		elif i-last >= gate and arr[i] != arr[last]:
 			peaks.append(i)
 			last = i
+	#print peaks
 	return peaks
 def find_local_peaks(lst, hImg, gate):
 	pImg = hImg.load()
@@ -182,8 +193,36 @@ def mhh(P1, P2, vgate):
 		if th2 == 0:
 			th2 = 1
 		phi = phi - ((1/tan(th1))-(1/tan(th2)))
-		print phi
+		#print phi
 	return phi/len(C)
+
+def transMP(P1, P2, dgate, vgate):
+	C = []
+	d = int((1280/180)*5)
+
+	for i in range(len(P1)):
+		min = None
+		minDif = None
+		for j in range(P1[i][0]-d, P1[i][0]+d):
+			if j < 0:
+				continue
+			else:
+				for g in range(len(P2)):
+					if P2[g][0] == j and min == None:
+						min = g
+						minDif = abs(P2[g][2]-P1[i][2])+abs(P2[g][1]-P1[i][1])
+					elif P2[g][0] == j:
+						dif = abs(P2[g][2]-P1[i][2])+abs(P2[g][1]-P1[i][1])
+
+						if dif < minDif:
+							minDif = dif
+							min = g
+		if min != None:
+			if abs(P2[min][2]-P1[i][2]) > vgate or abs(P2[min][1]-P1[i][1]) > dgate:
+				continue
+			else:
+				C.append((i,min))
+	return C
 
 files = glob('../Images/rotated_*')
 for f in files:
@@ -197,8 +236,8 @@ else:
 	print 'Please pass in the name of the two maps to be merged without the extention'
 	exit()
 
-img = extendImage(img)
-img2 = extendImage(img2)
+img, rmax = extendImage(img)
+img2, rmax2 = extendImage(img2)
 
 img.save('../Images/extend.png')
 img2.save('../Images/extend2.png')
@@ -211,55 +250,38 @@ detectEdges(img2, '../Images/edges2H.png')
 
 im = Image.open('../Images/edgesH.png').convert('L') #Loads the image and makes it grayscale
 him = hough(im)
-tIF, arrA = avg(him)
-tIF.save('../Images/tIF.bmp')
 tIFma, arrM = tIFmax(him)
 tIFma.save('../Images/tIFmax.bmp')
 him.save('../Images/ho.bmp')
 
 im2 = Image.open('../Images/edges2H.png').convert('L') #Loads the image and makes it grayscale
 him2 = hough(im2)
-tIF, arrA2 = avg(him2)
-tIF.save('../Images/tIF2.bmp')
+
 tIFmax2, arrM2 = tIFmax(him2)
 tIFmax2.save('../Images/tIFmax2.bmp')
 him2.save('../Images/ho2.bmp')
 
 
 corrM = periodic_corr_np(arrM, arrM2)
-corrA = periodic_corr_np(arrA, arrA2)
-
-#indM = np.argmax(corrM)
-#indM = ((indM/1280.0)*180)-90
 
 
-arrFP = find_peaks(corrM)
+arrFP = find_peaks(corrM, 250)
 for x in range(len(arrFP)):
 	arrFP[x] = ((arrFP[x]/1280.0)*180)-90
-print arrFP
+#print arrFP
 
-#indA = np.argmax(corrA)
-#indA = ((indA/1280.0)*180)-90
-
-#img = Image.open('../Images/map.pgm')
-#img.rotate(indM).show()
-#for x in arrFP:
-#	img.rotate(x).show()
-#img.rotate(indA).show()
-#img.show()
 
 corr2Img(corrM, '../Images/maxCorr.bmp')
-corr2Img(corrA, '../Images/avgCorr.bmp')
 
-img = cv2.imread('../Images/extend2.png')
+img = cv2.imread('../Images/%s.pgm' % argv[2])
 
 
-lp = find_local_peaks(arrM, him, 100)
-lp2 = find_local_peaks(arrM2, him2, 100)
-
+lp = find_local_peaks(arrM, him, 150)
+lp2 = find_local_peaks(arrM2, him2, 150)
+#print lp
 
 phiH = mhh(lp, lp2, 15)
-print phiH
+#print phiH
 ab = 360
 phi = 360
 
@@ -273,6 +295,12 @@ for x in arrFP:
 
 rotated = ndimage.rotate(img, -phi, cval = 205)
 cv2.imwrite('../Images/rotated.bmp', rotated)
+imgR = Image.open('../Images/rotated.bmp')
+imgR = extendImage2(imgR, rmax2)
+imgR.save('../Images/rotated2.bmp')
+imgR.close()
+rotated = cv2.imread('../Images/rotated.bmp')
+rotated = cv2.cvtColor(rotated,cv2.COLOR_BGR2GRAY)
 
 im.close()
 im2.close()
@@ -281,6 +309,29 @@ detectEdges(rotated, '../Images/edgesR.png')
 imR = Image.open('../Images/edgesR.png').convert('L')
 himR = hough(imR)
 himR.save('../Images/hoR.bmp')
+
+tIFma2, arrM2 = tIFmax(himR)
+tIFma2.save('../Images/tIFmaxR.bmp')
+
+lp2 = find_local_peaks(arrM2, himR, 150)
+
+C = transMP(lp, lp2, 70, 70)
+
+Al = []
+Bl = []
+
+for i,j in C:
+	Bl.append([lp[i][1]-lp2[j][1]])
+	a = cos((lp2[j][0]/1280.0)*pi)
+	b = sin((lp2[j][0]/1280.0)*pi)
+	Al.append([a, b])
+
+A = np.asarray(Al)
+B = np.asarray(Bl)
+
+At = np.transpose(A)
+T = np.dot(np.linalg.inv(np.dot(At,A)), np.dot(At,B))
+
 
 ct = gmtime().tm_sec
 dt = ct-st
