@@ -43,6 +43,11 @@ def detectEdges(img, savePath):
 	cv2.imwrite(savePath, edges)
 
 def avg(im):
+	"""
+	Calculates the average intensity over each angle in a hough image
+
+	Returns an image and array of the intensities
+	"""
 	pim = im.load()
 	imx, imy = im.size
 	nim = Image.new("L", (imx, 256), 255)
@@ -63,6 +68,11 @@ def avg(im):
 	return nim, arr
 
 def tIFmax(im):
+	"""
+	Finds the maximum intensity over each angle in a hough image
+
+	Returns an image and array of the intensities
+	"""
 	pim = im.load()
 	imx, imy = im.size
 	nim = Image.new("L", (imx, 256), 255)
@@ -87,7 +97,12 @@ def tIFmax(im):
 
 
 def extendImage(img):
+	"""
+	Extends the given image to make the new sides the length of the hypotenuse
+	witch the previous image placed in the center
 
+	Returns the extended image and the hypotenuse
+	"""
 	nimx, mimy = img.size
 	rmax = int(hypot(nimx, mimy))
 	size = (rmax,rmax)
@@ -97,7 +112,11 @@ def extendImage(img):
 	return layer, rmax
 
 def extendImage2(img, rmax):
+	"""
+	Extends an image to the given size rmax and places the image in the center
 
+	Returns the extended image
+	"""
     nimx, mimy = img.size
     size = (rmax,rmax)
 
@@ -133,8 +152,8 @@ def corr2Img(arr, saveFile):
 
 def find_peaks(arr, gate):
 	"""
-	Finds the peaks with a minimum distance of the gate between them
-	Outputs a list of the location of the peaks
+	Finds the peaks in an array with a minimum distance of the gate between them
+	Returns a list of the location of the peaks
 	"""
 	size = arr.size
 	peaks = []
@@ -151,6 +170,13 @@ def find_peaks(arr, gate):
 	#print peaks
 	return peaks
 def find_local_peaks(lst, hImg, gate):
+	"""
+	Finds the local peaks of an array with a minimum distance of the gate
+	It then finds these peaks in the given hough image and locates the theta,
+	rho and the intensity
+
+	Returns a list of all the thetas, rhos and intensities at the local peaks
+	"""
 	pImg = hImg.load()
 	size = len(lst)
 	imx, imy = hImg.size
@@ -176,6 +202,14 @@ def find_local_peaks(lst, hImg, gate):
 	return P
 
 def mhh(P1, P2, vgate):
+	"""
+	Multiple hypothesis handling
+	Inputs a list of peaks for each hough image containing the theta, rho and intensity
+	Finds the average rotation needed to line up peaks that could correspond to each other
+	which is if the intensity is within a range of vgate
+
+	Returns a theoretical rotation value
+	"""
 	C = []
 	phi = 0
 	for i in range(len(P1)):
@@ -197,8 +231,16 @@ def mhh(P1, P2, vgate):
 	return phi/len(C)
 
 def transMP(P1, P2, dgate, vgate):
+	"""
+	Translation by Matching Peaks of hough images
+	Inputs a list of peaks for each hough image containing the theta, rho and intensity
+	vgate is the minimum difference between intensity peaks where they can be associated
+	dgate is the minimum difference between the rho of the intensity peaks where they can still be associated
+
+	Returns a transformation matrix
+	"""
 	C = []
-	d = int((1280/180)*5)
+	d = int((1280/180)*5)	#d is the range in degrees in will check for matching peaks
 
 	for i in range(len(P1)):
 		min = None
@@ -226,7 +268,7 @@ def transMP(P1, P2, dgate, vgate):
 
 files = glob('../Images/rotated_*')
 for f in files:
-	remove(f)
+	remove(f) #Removes all previous rotation hypothesies from earlier runs
 
 st = gmtime().tm_sec
 if len(argv) == 3:
@@ -251,15 +293,15 @@ detectEdges(img2, '../Images/edges2H.png')
 im = Image.open('../Images/edgesH.png').convert('L') #Loads the image and makes it grayscale
 him = hough(im)
 tIFma, arrM = tIFmax(him)
-tIFma.save('../Images/tIFmax.bmp')
-him.save('../Images/ho.bmp')
+tIFma.save('../Images/tIFmax.png')
+him.save('../Images/ho.png')
 
 im2 = Image.open('../Images/edges2H.png').convert('L') #Loads the image and makes it grayscale
 him2 = hough(im2)
 
 tIFmax2, arrM2 = tIFmax(him2)
-tIFmax2.save('../Images/tIFmax2.bmp')
-him2.save('../Images/ho2.bmp')
+tIFmax2.save('../Images/tIFmax2.png')
+him2.save('../Images/ho2.png')
 
 
 corrM = periodic_corr_np(arrM, arrM2)
@@ -267,11 +309,11 @@ corrM = periodic_corr_np(arrM, arrM2)
 
 arrFP = find_peaks(corrM, 250)
 for x in range(len(arrFP)):
-	arrFP[x] = ((arrFP[x]/1280.0)*180)-90
+	arrFP[x] = ((arrFP[x]/1280.0)*180)-90 #Converts the peaks to degrees instead of pixels
 #print arrFP
 
 
-corr2Img(corrM, '../Images/maxCorr.bmp')
+corr2Img(corrM, '../Images/maxCorr.png')
 
 img = cv2.imread('../Images/%s.pgm' % argv[2])
 
@@ -285,21 +327,21 @@ phiH = mhh(lp, lp2, 15)
 ab = 360
 phi = 360
 
-for x in arrFP:
+for x in arrFP: # Saves the different rotation hypothesies and finds the one closest to the hypothetical rotation
 	rotated = ndimage.rotate(img, -x, cval = 205)
-	cv2.imwrite('../Images/rotated_%d_degrees.bmp' % x, rotated)
+	cv2.imwrite('../Images/rotated_%d_degrees.png' % x, rotated)
 
 	if abs(x - phiH) < ab:
 		ab = abs(x - phiH)
 		phi = x
 
 rotated = ndimage.rotate(img, -phi, cval = 205)
-cv2.imwrite('../Images/rotated.bmp', rotated)
-imgR = Image.open('../Images/rotated.bmp')
+cv2.imwrite('../Images/rotated.png', rotated)
+imgR = Image.open('../Images/rotated.png')
 imgR = extendImage2(imgR, rmax2)
-imgR.save('../Images/rotated2.bmp')
+imgR.save('../Images/rotated_extended.png')
 imgR.close()
-rotated = cv2.imread('../Images/rotated.bmp')
+rotated = cv2.imread('../Images/rotated.png')
 rotated = cv2.cvtColor(rotated,cv2.COLOR_BGR2GRAY)
 
 im.close()
@@ -308,10 +350,10 @@ im2.close()
 detectEdges(rotated, '../Images/edgesR.png')
 imR = Image.open('../Images/edgesR.png').convert('L')
 himR = hough(imR)
-himR.save('../Images/hoR.bmp')
+himR.save('../Images/hoR.png')
 
 tIFma2, arrM2 = tIFmax(himR)
-tIFma2.save('../Images/tIFmaxR.bmp')
+tIFma2.save('../Images/tIFmaxR.png')
 
 lp2 = find_local_peaks(arrM2, himR, 150)
 
@@ -332,6 +374,19 @@ B = np.asarray(Bl)
 At = np.transpose(A)
 T = np.dot(np.linalg.inv(np.dot(At,A)), np.dot(At,B))
 
+img = Image.open('../Images/extend.png').convert('L')
+imgR = Image.open('../Images/rotated.png').convert('L')
+
+imx, imy = img.size
+imxR, imyR = imgR.size
+
+x = int((imx/2) - (imxR/2) + T[0][0])
+y = int((imy/2) - (imyR/2) + T[1][0])
+
+imgT = Image.new("L", (imx, imy), 205)
+imgT.paste(imgR, (x,y))
+merged = Image.blend(img, imgT, 0.5)
+merged.save('../Images/merged.png')
 
 ct = gmtime().tm_sec
 dt = ct-st
