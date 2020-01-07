@@ -1,1 +1,0 @@
-/home/vision/catkin_ws_robot/devel/.private/amcl/include/amcl/AMCLConfig.h

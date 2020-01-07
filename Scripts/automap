@@ -1,0 +1,35 @@
+#!/bin/bash
+
+echo "Moving to catkin_ws.."
+cd /home/vision/catkin_ws/
+echo "Sourcing setup file.."
+source devel/setup.bash
+
+COUNTER=0
+string1=map_iteration
+mystring=${string1}
+mystring+=${COUNTER}
+rosrun map_server map_saver -f /home/vision/${mystring}
+
+while : 
+do
+
+echo "Preparing next iteration.."
+sleep 10
+
+mystring2=${string1}
+mystring2+=${COUNTER}
+
+COUNTER=$((COUNTER+1))
+mystring=${string1}
+mystring+=${COUNTER}
+
+rosrun map_server map_saver -f /home/vision/${mystring}
+
+sudo rm /home/vision/${mystring2}.pgm
+sudo rm /home/vision/${mystring2}.yaml
+
+echo "sends the map to server.."
+scp /home/vision/${mystring}.pgm /home/vision/${mystring}.yaml coarl@192.168.1.97:~/Documents/Maps
+
+done

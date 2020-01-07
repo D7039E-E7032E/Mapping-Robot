@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Moving to catkin_ws.."
+cd /home/vision/catkin_ws/
+echo "Sourcing setup file.."
+source devel/setup.bash
+echo "Starting turtlebot3_teleop turtlebot3_teleop_key.launch"
+roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+

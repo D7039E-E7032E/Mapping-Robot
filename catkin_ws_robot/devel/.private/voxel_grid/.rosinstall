@@ -1,2 +1,0 @@
-- setup-file:
-    local-name: /home/vision/catkin_ws_robot/devel/.private/voxel_grid/setup.sh

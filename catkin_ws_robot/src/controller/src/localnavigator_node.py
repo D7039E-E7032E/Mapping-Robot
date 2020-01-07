@@ -2,8 +2,9 @@
 import rospy
 from nav_msgs.msg import Odometry
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
-from navigation.msg import Pathvector
+from controller.msg import Pathvector
 from sensor_msgs.msg import LaserScan
+from nav_msgs.msg import Path
 import math
 
 dirx=diry=0
@@ -15,12 +16,18 @@ kv=0.
 n=1
 c=10
 roll = pitch = yaw = 0.0
+l=400
 
 
 def get_dir(msg):
-    global dirx,diry    
-    dirx=msg.x
-    diry=msg.y
+    global dirx,diry 
+    poses=msg.poses   
+    dirx=poses[1].pose.position.x-poses[0].pose.position.x
+    diry=poses[1].pose.position.y-poses[0].pose.position.y
+    length=math.sqrt(dirx*dirx+diry*diry)
+    dirx=dirx/length*l
+    diry=diry/length*l
+    #print()
 
 
 def get_rang (msg):
@@ -37,7 +44,7 @@ def get_rotation (msg):
  
 rospy.init_node('localnavigator_node')
  
-sub = rospy.Subscriber ('/dirv', Pathvector, get_dir)
+sub = rospy.Subscriber ('/move_base/DWAPlannerROS/global_plan', Path, get_dir)
 sub2= rospy.Subscriber ('/scan', LaserScan, get_rang)
 sub3 = rospy.Subscriber ('/odom', Odometry, get_rotation)
 pub = rospy.Publisher('pathv', Pathvector, queue_size=1)
