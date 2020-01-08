@@ -112,11 +112,11 @@ def extendImage(img):
 	return layer, rmax
 
 def extendImage2(img, rmax):
-	"""
-	Extends an image to the given size rmax and places the image in the center
+    """
+    Extends an image to the given size rmax and places the image in the center
 
-	Returns the extended image
-	"""
+    Returns the extended image
+    """
     nimx, mimy = img.size
     size = (rmax,rmax)
 
@@ -341,7 +341,7 @@ imgR = Image.open('../Images/rotated.png')
 imgR = extendImage2(imgR, rmax2)
 imgR.save('../Images/rotated_extended.png')
 imgR.close()
-rotated = cv2.imread('../Images/rotated.png')
+rotated = cv2.imread('../Images/rotated_extended.png')
 rotated = cv2.cvtColor(rotated,cv2.COLOR_BGR2GRAY)
 
 im.close()
@@ -355,37 +355,43 @@ himR.save('../Images/hoR.png')
 tIFma2, arrM2 = tIFmax(himR)
 tIFma2.save('../Images/tIFmaxR.png')
 
-lp2 = find_local_peaks(arrM2, himR, 150)
+lp2 = find_local_peaks(arrM2, himR, 125)
 
-C = transMP(lp, lp2, 70, 70)
+
+C = transMP(lp, lp2, 100, 100)
+
+print C
 
 Al = []
 Bl = []
 
 for i,j in C:
-	Bl.append([lp[i][1]-lp2[j][1]])
-	a = cos((lp2[j][0]/1280.0)*pi)
-	b = sin((lp2[j][0]/1280.0)*pi)
+	Bl.append([lp2[j][1]-lp[i][1]])
+	a = cos((lp[i][0]/1280.0)*pi)
+	b = sin((lp[i][0]/1280.0)*pi)
 	Al.append([a, b])
 
 A = np.asarray(Al)
 B = np.asarray(Bl)
 
 At = np.transpose(A)
+
 T = np.dot(np.linalg.inv(np.dot(At,A)), np.dot(At,B))
 
 img = Image.open('../Images/extend.png').convert('L')
-imgR = Image.open('../Images/rotated.png').convert('L')
+imgR = Image.open('../Images/rotated_extended.png').convert('L')
 
 imx, imy = img.size
 imxR, imyR = imgR.size
 
-x = int((imx/2) - (imxR/2) + T[0][0])
-y = int((imy/2) - (imyR/2) + T[1][0])
+print T
+x = int((imx/2) - (imxR/2) - T[0][0])
+y = int((imy/2) - (imyR/2) - T[1][0])
 
 imgT = Image.new("L", (imx, imy), 205)
 imgT.paste(imgR, (x,y))
 merged = Image.blend(img, imgT, 0.5)
+merged.show()
 merged.save('../Images/merged.png')
 
 ct = gmtime().tm_sec
