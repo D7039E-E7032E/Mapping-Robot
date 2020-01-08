@@ -360,15 +360,13 @@ lp2 = find_local_peaks(arrM2, himR, 125)
 
 C = transMP(lp, lp2, 100, 100)
 
-print C
-
 Al = []
 Bl = []
 
 for i,j in C:
-	Bl.append([lp2[j][1]-lp[i][1]])
-	a = cos((lp[i][0]/1280.0)*pi)
-	b = sin((lp[i][0]/1280.0)*pi)
+	Bl.append([lp[i][1]-lp2[j][1]])
+	a = cos((lp2[j][0]/1280.0)*pi)
+	b = sin((lp2[j][0]/1280.0)*pi)
 	Al.append([a, b])
 
 A = np.asarray(Al)
@@ -385,8 +383,8 @@ imx, imy = img.size
 imxR, imyR = imgR.size
 
 print T
-x = int((imx/2) - (imxR/2) - T[0][0])
-y = int((imy/2) - (imyR/2) - T[1][0])
+x = int((imx/2) - (imxR/2) + T[0][0])
+y = int((imy/2) - (imyR/2) + T[1][0])
 
 imgT = Image.new("L", (imx, imy), 205)
 imgT.paste(imgR, (x,y))
