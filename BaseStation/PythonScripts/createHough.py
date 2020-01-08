@@ -382,7 +382,6 @@ imgR = Image.open('../Images/rotated_extended.png').convert('L')
 imx, imy = img.size
 imxR, imyR = imgR.size
 
-print T
 x = int((imx/2) - (imxR/2) + T[0][0])
 y = int((imy/2) - (imyR/2) + T[1][0])
 
