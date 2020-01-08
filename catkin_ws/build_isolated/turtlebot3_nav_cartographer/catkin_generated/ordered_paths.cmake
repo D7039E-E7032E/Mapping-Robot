@@ -1,0 +1,1 @@
+set(ORDERED_PATHS "/home/robot/Mapping-Robot/catkin_ws/install_isolated/lib;/opt/ros/melodic/lib")

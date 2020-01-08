@@ -1,8 +1,0 @@
-prefix=/home/robot/Mapping-Robot/catkin_ws/install_isolated
-
-Name: ros_lidar
-Description: Description of ros_lidar
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/robot/Mapping-Robot/catkin_ws/install_isolated/lib 
-Requires: 
