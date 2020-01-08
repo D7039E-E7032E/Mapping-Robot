@@ -388,7 +388,6 @@ y = int((imy/2) - (imyR/2) + T[1][0])
 imgT = Image.new("L", (imx, imy), 205)
 imgT.paste(imgR, (x,y))
 merged = Image.blend(img, imgT, 0.5)
-merged.show()
 merged.save('../Images/merged.png')
 
 ct = gmtime().tm_sec
