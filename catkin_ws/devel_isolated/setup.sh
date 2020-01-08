@@ -6,4 +6,4 @@ if [ ! -z "$_CATKIN_SETUP_DIR" ] && [ "$_CATKIN_SETUP_DIR" != "/home/robot/Mappi
   return 1
 fi
 
-_CATKIN_SETUP_DIR= . "/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_simulations/setup.sh"
+_CATKIN_SETUP_DIR= . "/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_teleop/setup.sh"
