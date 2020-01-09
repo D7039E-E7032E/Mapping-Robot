@@ -19,7 +19,7 @@ def hough(im, ntx=1280, mry=720):
     pim = im.load()
     nimx, mimy = im.size
     mry = int(mry/2)*2          #Make sure that this is even
-    him = Image.new("L", (ntx, mry), 0)
+    him = Image.new("L", (ntx, mry), 255)
     phim = him.load()
 
     rmax = hypot(nimx, mimy)
@@ -35,7 +35,7 @@ def hough(im, ntx=1280, mry=720):
                 #th = th - (pi/2)
                 r = jx*cos(th) + iy*sin(th)
                 iry = mry/2 + int(r/dr+0.5)
-                phim[jtx, iry] += 1
+                phim[jtx, iry] -= 1
     return him
 
 def detectEdges(img, savePath):
@@ -81,18 +81,18 @@ def tIFmax(im):
 	drim = ImageDraw.Draw(nim)
 	prev = 0
 	for x in range(imx):
-		max = 0
+		max = 255
 		for y in range(imy):
-			if pim[x, y] != 0 and max < pim[x,y]:
+			if pim[x, y] != 255 and max > pim[x,y]:
 				max = pim[x,y]
 	    #pnim[x, max] = 0
-		arr.append(255-max)
+		arr.append(max)
 		if prev == 0:
-			prev = (x, 255-max)
+			prev = (x, max)
 			#print prev
 		else:
-			drim.line([prev, (x, 255-max)], fill="black", width = 0)
-			prev = (x, 255-max)
+			drim.line([prev, (x, max)], fill="black", width = 0)
+			prev = (x, max)
 	return nim, arr
 
 
@@ -147,7 +147,7 @@ def corr2Img(arr, saveFile):
 	arr = (arr / float(max(arr)))*128
 	#drim = ImageDraw.Draw(nim)
 	for x in range(imx):
-		pnim[x, 255-int(arr[x])] = 0
+		pnim[x, int(arr[x])] = 0
 	nim.save(saveFile)
 
 def find_peaks(arr, gate):
@@ -167,6 +167,7 @@ def find_peaks(arr, gate):
 		elif i-last >= gate and arr[i] != arr[last]:
 			peaks.append(i)
 			last = i
+	#print peaks
 	return peaks
 def find_local_peaks(lst, hImg, gate):
 	"""
@@ -185,7 +186,7 @@ def find_local_peaks(lst, hImg, gate):
 	for i in range(size):
 		if not peaks:
 			peaks.append((0, lst[0]))
-		elif lst[i] > lst[last] and i-last < gate:
+		elif lst[i] < lst[last] and i-last < gate:
 			peaks[len(peaks)-1] = (i, lst[i])
 			last = i
 		elif i-last >= gate and lst[i] != lst[last]:
@@ -193,7 +194,7 @@ def find_local_peaks(lst, hImg, gate):
 			last = i
 	for th,v in peaks: #Theta, value
 		for p in range(imy): # Rho
-			if pImg[th,p] == 255-v:
+			if pImg[th,p] == v:
 				P.append((th, p, v))
 				break
 			elif p == imy-1:
@@ -211,13 +212,11 @@ def mhh(P1, P2, vgate):
 	"""
 	C = []
 	phi = 0
-	print vgate
 	for i in range(len(P1)):
-		argmin = (0, -1)
+		argmin = (1000, -1)
 		for j in range(len(P2)):
-			if abs(P1[i][2]-P2[j][2]) > argmin[0]:
+			if abs(P1[i][2]-P2[j][2]) < argmin[0]:
 				argmin = (abs(P1[i][2]-P2[j][2]), j)
-		print argmin[0]
 		if argmin[0] < vgate:
 			C.append((i, argmin[1]))
 	for i,j in C:
@@ -274,9 +273,7 @@ for f in files:
 st = gmtime().tm_sec
 if len(argv) == 3:
 	img = Image.open('../Images/%s.pgm' % argv[1])
-	img.save('../Images/map.png')
 	img2 = Image.open('../Images/%s.pgm' % argv[2])
-	img2.save('../Images/map2.png')
 else:
 	print 'Please pass in the name of the two maps to be merged without the extention'
 	exit()
@@ -323,8 +320,9 @@ img = cv2.imread('../Images/%s.pgm' % argv[2])
 
 lp = find_local_peaks(arrM, him, 150)
 lp2 = find_local_peaks(arrM2, him2, 150)
+#print lp
 
-phiH = mhh(lp, lp2, 50)
+phiH = mhh(lp, lp2, 15)
 #print phiH
 ab = 360
 phi = 360
