@@ -112,3 +112,4 @@ venv.bak/
 /BaseStation/Images/ho*
 /BaseStation/Images/edges*
 /BaseStation/Images/merged*
+/BaseStation/Images/map*.png
