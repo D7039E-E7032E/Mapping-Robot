@@ -1,0 +1,5 @@
+<launch>
+  <!-- Scott Local Controller -->
+  <node pkg="controller" type="localnavigator_node.py" name="scott_controller" output="screen"/>
+  <node pkg="controller" type="pathfollow_node.py" name="scott_path" output="screen"/>
+</launch>
