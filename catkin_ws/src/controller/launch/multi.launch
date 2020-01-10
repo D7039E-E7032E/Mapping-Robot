@@ -1,6 +1,12 @@
 <launch>
   <!-- Scott Local Controller -->
   <arg name="ns" default="tb3_0"/>
-  <node pkg="controller" type="localnavigator_node.py" name="scott_controller" output="screen" ns="$(arg ns)"/>
-  <node pkg="controller" type="pathfollow_node.py" name="scott_path" output="screen" ns="$(arg ns)"/>
+  <node pkg="controller" type="localnavigator_node.py" name="scott_controller" output="screen" ns="$(arg ns)">
+    <remap from="/scan" to="$(arg ns)/scan"/>
+    <remap from="/odom" to="$(arg ns)/odom"/>
+  </node>
+  <node pkg="controller" type="pathfollow_node.py" name="scott_path" output="screen" ns="$(arg ns)">
+    <remap from="/pathv" to="$(arg ns)/pathv"/>
+    <remap from="/odom" to="$(arg ns)/odom"/>
+  </node>
 </launch>

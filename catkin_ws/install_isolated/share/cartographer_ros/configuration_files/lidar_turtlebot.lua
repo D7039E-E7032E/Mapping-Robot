@@ -15,6 +15,7 @@
 include "map_builder.lua"
 include "trajectory_builder.lua"
 
+-- A workaround for sending params into LUA.
 turtlebot3_ID = os.getenv("MY_ROBOT")
 
 options = {

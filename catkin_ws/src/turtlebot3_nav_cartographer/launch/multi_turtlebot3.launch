@@ -18,32 +18,42 @@
   <!-- Turtblebot3 Arguments -->
   <arg name="ns" default="tb3_0"/>
   <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
-   
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="0.0"/>
+  
   <env name="MY_ROBOT" value="$(arg ns)"/>
 
-  <!-- Turtlebot3 
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" ns="$(arg ns)"/>
-  -->
-  <!-- AMCL
-  <include file="$(find turtlebot3_navigation)/launch/multi_amcl.launch">
-    <arg name="ns" value="$(arg ns)"/>
-  </include>
-   -->
+  <!-- Turtblebot3 Spawn -->
+  <group ns="$(arg ns)">
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro"/>
+  
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+      <param name="publish_frequency" type="double" value="50.0" />
+      <param name="tf_prefix" value="$(arg ns)"/>
+    </node>
 
-  <!-- move_base 
-  <include file="$(find turtlebot3_navigation)/launch/multi_move_base.launch">
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg ns) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+  
+  <!-- AMCL -->
+  <include file="$(find turtlebot3_navigation)/launch/amcl.launch">
+  </include>
+
+  <!-- move_base -->
+  <include file="$(find turtlebot3_navigation)/launch/move_base.launch">
     <arg name="model" value="$(arg model)" />
-    <arg name="ns" value="$(arg ns)"/>
   </include> 
-  -->
+  
   <!-- Scott Local Controller 
   <include file="$(find controller)/launch/multi.launch">
     <arg name="ns" value="$(arg ns)"/>
   </include>
   -->
   <!-- Cartographer -->
-  <include file="$(find cartographer_ros)/launch/multi_turtlebot3_cartographer.launch">
-    <arg name="ns" value="$(arg ns)"/>
+  <include file="$(find cartographer_ros)/launch/turtlebot3_cartographer.launch">
   </include>
+</group>
+
+
   
 </launch>
