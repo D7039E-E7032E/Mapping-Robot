@@ -361,7 +361,7 @@ std_msgs_DIR:PATH=/opt/ros/melodic/share/std_msgs/cmake
 turtlebot3_description_BINARY_DIR:STATIC=/home/robot/Mapping-Robot/catkin_ws/build_isolated/turtlebot3_description
 
 //Value Computed by CMake
-turtlebot3_description_SOURCE_DIR:STATIC=/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3_description
+turtlebot3_description_SOURCE_DIR:STATIC=/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_description
 
 //The directory containing a CMake configuration file for urdf.
 urdf_DIR:PATH=/opt/ros/melodic/share/urdf/cmake
@@ -460,7 +460,7 @@ CMAKE_HAVE_PTHREAD_CREATE:INTERNAL=1
 CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3_description
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_description
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER

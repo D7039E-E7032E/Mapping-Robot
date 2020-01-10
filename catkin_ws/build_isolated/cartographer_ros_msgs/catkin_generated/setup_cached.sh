@@ -12,5 +12,5 @@ export LD_LIBRARY_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/carto
 export PKG_CONFIG_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/cartographer_ros_msgs/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/robot/Mapping-Robot/catkin_ws/build_isolated/cartographer_ros_msgs"
 export PYTHONPATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/cartographer_ros_msgs/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/cartographer_ros_msgs/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/cartographer_ros_msgs/share/common-lisp"
 export ROS_PACKAGE_PATH="/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros_msgs:$ROS_PACKAGE_PATH"

@@ -131,7 +131,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/robot/Mapping-Robot/catkin_ws/install_isolated/lib;/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_simulations/lib;/home/robot/Mapping-Robot/catkin_ws/install_isolated/lib;/opt/ros/melodic/lib)
+    foreach(path /home/robot/Mapping-Robot/catkin_ws/install_isolated/lib;/home/robot/Mapping-Robot/catkin_ws/install_isolated/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -162,7 +162,7 @@ foreach(t ${turtlebot3_nav_cartographer_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "amcl;cartographer_ros;move_base;robot_state_publisher;rviz")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

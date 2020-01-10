@@ -99,7 +99,7 @@ rule CXX_SHARED_LIBRARY_LINKER__gtest
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake -H/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3_description -B/home/robot/Mapping-Robot/catkin_ws/build_isolated/turtlebot3_description
+  command = /usr/bin/cmake -H/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_description -B/home/robot/Mapping-Robot/catkin_ws/build_isolated/turtlebot3_description
   description = Re-running CMake...
   generator = 1
 

@@ -15,13 +15,17 @@
 -->
 
 <launch>
+  <arg name="ns" default="tb3_0"/>
+
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find cartographer_ros)/configuration_files
           -configuration_basename lidar_turtlebot.lua"
-      output="screen">
+      output="screen"
+      ns="$(arg ns)">
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
-      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05"
+      ns="$(arg ns)"/>
 </launch>

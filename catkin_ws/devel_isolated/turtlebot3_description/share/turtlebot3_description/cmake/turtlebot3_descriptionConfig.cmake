@@ -67,7 +67,7 @@ set(turtlebot3_description_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(turtlebot3_description_SOURCE_PREFIX /home/robot/Mapping-Robot/catkin_ws/src/turtlebot3_description)
+  set(turtlebot3_description_SOURCE_PREFIX /home/robot/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_description)
   set(turtlebot3_description_DEVEL_PREFIX /home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_description)
   set(turtlebot3_description_INSTALL_PREFIX "")
   set(turtlebot3_description_PREFIX ${turtlebot3_description_DEVEL_PREFIX})
@@ -110,7 +110,7 @@ if(NOT " " STREQUAL " ")
         message(FATAL_ERROR "Project 'turtlebot3_description' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'turtlebot3_description' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3_description/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'turtlebot3_description' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_description/${idir}'.  ${_report}")
     endif()
     _list_append_unique(turtlebot3_description_INCLUDE_DIRS ${include})
   endforeach()
@@ -131,7 +131,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_description/lib;/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_simulations/lib;/home/robot/Mapping-Robot/catkin_ws/install_isolated/lib;/opt/ros/melodic/lib)
+    foreach(path /home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_description/lib;/home/robot/Mapping-Robot/catkin_ws/install_isolated/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -1,0 +1,18 @@
+# ninja log v5
+1	1188	1578672795	CMakeFiles/combine_grids.dir/src/combine_grids/grid_compositor.cpp.o	be72ca887b1c9725
+1	1040	1578672795	CMakeFiles/combine_grids.dir/src/combine_grids/grid_warper.cpp.o	7d3bc6666cf1e4a3
+3762	4294	1578672799	/home/robot/Mapping-Robot/catkin_ws/devel_isolated/multirobot_map_merge/lib/multirobot_map_merge/map_merge	3753ddab03d32aab
+1	1505	1578672796	CMakeFiles/combine_grids.dir/src/combine_grids/merging_pipeline.cpp.o	be9fdd542fe77423
+1506	1524	1578672796	/home/robot/Mapping-Robot/catkin_ws/devel_isolated/multirobot_map_merge/lib/libcombine_grids.a	997b5588d37e90f8
+1	3761	1578672798	CMakeFiles/map_merge.dir/src/map_merge.cpp.o	b4101796c2f39124
+3	16	0	CMakeFiles/install.util	c6c8530f61c6c4de
+3	16	0	CMakeFiles/install.util	c6c8530f61c6c4de
+3	17	0	CMakeFiles/install.util	c6c8530f61c6c4de
+3	16	0	CMakeFiles/install.util	c6c8530f61c6c4de
+3	16	0	CMakeFiles/install.util	c6c8530f61c6c4de
+3	17	0	CMakeFiles/install.util	c6c8530f61c6c4de
+3	19	0	CMakeFiles/install.util	c6c8530f61c6c4de
+3	16	0	CMakeFiles/install.util	c6c8530f61c6c4de
+3	16	0	CMakeFiles/install.util	c6c8530f61c6c4de
+3	16	0	CMakeFiles/install.util	c6c8530f61c6c4de
+3	16	0	CMakeFiles/install.util	c6c8530f61c6c4de

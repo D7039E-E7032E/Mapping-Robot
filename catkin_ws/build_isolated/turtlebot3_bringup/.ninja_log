@@ -1,23 +1,10 @@
 # ninja log v5
-0	2211	1578500764	CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o	d3c95a92236259b
-2213	2363	1578500764	/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_bringup/lib/turtlebot3_bringup/turtlebot3_diagnostics	87444550ca4415f9
-3	18	0	CMakeFiles/install.util	1fa5f4edfed0d465
-2	16	0	CMakeFiles/install.util	1fa5f4edfed0d465
-2	16	0	CMakeFiles/install.util	1fa5f4edfed0d465
-2	16	0	CMakeFiles/install.util	1fa5f4edfed0d465
-2	14	0	CMakeFiles/install.util	1fa5f4edfed0d465
+0	2183	1578672804	CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o	d3c95a92236259b
+2184	2329	1578672804	/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_bringup/lib/turtlebot3_bringup/turtlebot3_diagnostics	87444550ca4415f9
+2	15	0	CMakeFiles/install.util	1fa5f4edfed0d465
 2	17	0	CMakeFiles/install.util	1fa5f4edfed0d465
-3	20	0	CMakeFiles/install.util	1fa5f4edfed0d465
-2	15	0	CMakeFiles/install.util	1fa5f4edfed0d465
-1	14	0	CMakeFiles/install.util	1fa5f4edfed0d465
 2	15	0	CMakeFiles/install.util	1fa5f4edfed0d465
 2	16	0	CMakeFiles/install.util	1fa5f4edfed0d465
-2	18	0	CMakeFiles/install.util	1fa5f4edfed0d465
-2	14	0	CMakeFiles/install.util	1fa5f4edfed0d465
 2	15	0	CMakeFiles/install.util	1fa5f4edfed0d465
-3	17	0	CMakeFiles/install.util	1fa5f4edfed0d465
-2	14	0	CMakeFiles/install.util	1fa5f4edfed0d465
-2	14	0	CMakeFiles/install.util	1fa5f4edfed0d465
+3	15	0	CMakeFiles/install.util	1fa5f4edfed0d465
 2	15	0	CMakeFiles/install.util	1fa5f4edfed0d465
-2	16	0	CMakeFiles/install.util	1fa5f4edfed0d465
-2	14	0	CMakeFiles/install.util	1fa5f4edfed0d465

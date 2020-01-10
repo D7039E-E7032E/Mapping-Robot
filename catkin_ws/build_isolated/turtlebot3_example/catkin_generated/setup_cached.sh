@@ -11,5 +11,5 @@ export CMAKE_PREFIX_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/tur
 export LD_LIBRARY_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_example/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_example/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PYTHONPATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_example/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_example/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_example/share/common-lisp"
 export ROS_PACKAGE_PATH="/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_example:$ROS_PACKAGE_PATH"

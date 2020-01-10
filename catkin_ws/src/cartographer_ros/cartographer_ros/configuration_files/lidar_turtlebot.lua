@@ -15,16 +15,19 @@
 include "map_builder.lua"
 include "trajectory_builder.lua"
 
+-- A workaround for sending params into LUA.
+turtlebot3_ID = os.getenv("MY_ROBOT")
+
 options = {
   map_builder = MAP_BUILDER,
   trajectory_builder = TRAJECTORY_BUILDER,
   map_frame = "map",
-  tracking_frame = "base_footprint",
-  published_frame = "base_footprint",
+  tracking_frame = turtlebot3_ID .. "/base_footprint",
+  published_frame = turtlebot3_ID .. "/base_footprint",
   odom_frame = "odom",
   provide_odom_frame = true,
   publish_frame_projected_to_2d = true,
-  use_odometry = false,
+  use_odometry = true,
   use_nav_sat = false,
   use_landmarks = false,
   num_laser_scans = 1,

@@ -11,5 +11,5 @@ export CMAKE_PREFIX_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/con
 export LD_LIBRARY_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/controller/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/controller/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PYTHONPATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/controller/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/controller/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/controller/share/common-lisp"
 export ROS_PACKAGE_PATH="/home/robot/Mapping-Robot/catkin_ws/src/controller:$ROS_PACKAGE_PATH"

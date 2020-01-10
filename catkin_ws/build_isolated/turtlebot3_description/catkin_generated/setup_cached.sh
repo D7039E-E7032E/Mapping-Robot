@@ -10,5 +10,5 @@
 export CMAKE_PREFIX_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_description:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_description/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_description/lib/pkgconfig:$PKG_CONFIG_PATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_description/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_description:/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3_description:$ROS_PACKAGE_PATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/turtlebot3_description/share/common-lisp"
+export ROS_PACKAGE_PATH="/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3/turtlebot3_description:$ROS_PACKAGE_PATH"

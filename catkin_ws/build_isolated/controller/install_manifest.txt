@@ -38,3 +38,7 @@
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/controller/cmake/controllerConfig.cmake
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/controller/cmake/controllerConfig-version.cmake
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/controller/package.xml
+/home/robot/Mapping-Robot/catkin_ws/install_isolated/lib/controller/localnavigator_node.py
+/home/robot/Mapping-Robot/catkin_ws/install_isolated/lib/controller/pathfollow_node.py
+/home/robot/Mapping-Robot/catkin_ws/install_isolated/share/controller/launch/multi.launch
+/home/robot/Mapping-Robot/catkin_ws/install_isolated/share/controller/launch/simple.launch
