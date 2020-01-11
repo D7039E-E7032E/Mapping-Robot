@@ -34,7 +34,7 @@
     <include file="$(find turtlebot3_navigation)/launch/amcl.launch"/>
   
   <!-- move_base -->
-    <include file="$(find turtlebot3_navigation)/launch/move_base.launch">
+    <include file="$(find turtlebot3_navigation)/launch/multi_move_base.launch">
       <arg name="model" value="$(arg model)"/>
     </include> 
   
