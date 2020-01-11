@@ -70,6 +70,7 @@
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/configuration_files/demo_2d.rviz
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/configuration_files/demo_3d.rviz
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/configuration_files/lidar_turtlebot.lua
+#/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/configuration_files/multi_lidar_turtlebot.lua
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/configuration_files/pr2.lua
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/configuration_files/revo_lds.lua
 #/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros/configuration_files/taurob_tracker.lua

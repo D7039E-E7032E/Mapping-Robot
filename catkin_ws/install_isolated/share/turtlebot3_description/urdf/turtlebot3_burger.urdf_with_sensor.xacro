@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <robot name="turtlebot3_burger" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find cartographer_ros)/urdf/turtlebot3_description/urdf/common_properties.xacro"/>
-  <xacro:include filename="$(find cartographer_ros)/urdf/turtlebot3_description/urdf/turtlebot3_burger.gazebo.xacro"/>
-  <xacro:include filename="$(find cartographer_ros)/urdf/turtlebot3_description/urdf/camera.urdf.xacro" />
+  <xacro:include filename="$(find turtlebot3_description)/urdf/common_properties.xacro"/>
+  <xacro:include filename="$(find turtlebot3_description)/urdf/turtlebot3_burger.gazebo.xacro"/>
+  <xacro:include filename="$(find turtlebot3_description)/urdf/camera.urdf.xacro" />
 
   <xacro:generic_camera name="camera" parent="base_link">
     <origin xyz="0.0 0.0 0.2" rpy="0 0 0"/>

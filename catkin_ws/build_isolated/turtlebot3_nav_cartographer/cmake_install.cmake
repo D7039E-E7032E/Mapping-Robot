@@ -143,6 +143,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot3_nav_cartographer" TYPE FILE FILES "/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3_nav_cartographer/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot3_nav_cartographer/launch" TYPE DIRECTORY FILES "/home/robot/Mapping-Robot/catkin_ws/src/turtlebot3_nav_cartographer/launch/")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/robot/Mapping-Robot/catkin_ws/build_isolated/turtlebot3_nav_cartographer/gtest/cmake_install.cmake")

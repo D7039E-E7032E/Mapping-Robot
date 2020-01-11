@@ -7,10 +7,11 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/cartographer_ros_msgs:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/cartographer_ros_msgs/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/cartographer_ros_msgs/lib/pkgconfig:$PKG_CONFIG_PATH"
+export CMAKE_PREFIX_PATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/cartographer_ros_msgs:/opt/ros/melodic"
+export LD_LIBRARY_PATH="/opt/ros/melodic/lib"
+export PATH="/opt/ros/melodic/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+export PKG_CONFIG_PATH="/opt/ros/melodic/lib/pkgconfig"
 export PWD="/home/robot/Mapping-Robot/catkin_ws/build_isolated/cartographer_ros_msgs"
-export PYTHONPATH="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/cartographer_ros_msgs/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/cartographer_ros_msgs/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros_msgs:$ROS_PACKAGE_PATH"
+export PYTHONPATH="/opt/ros/melodic/lib/python2.7/dist-packages"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/robot/Mapping-Robot/catkin_ws/devel_isolated/cartographer_ros_msgs/share/common-lisp"
+export ROS_PACKAGE_PATH="/home/robot/Mapping-Robot/catkin_ws/src/cartographer_ros/cartographer_ros_msgs:/opt/ros/melodic/share"

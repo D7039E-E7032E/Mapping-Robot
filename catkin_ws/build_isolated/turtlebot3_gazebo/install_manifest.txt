@@ -13,6 +13,7 @@
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/package.xml
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/lib/turtlebot3_gazebo/turtlebot3_drive
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/include/turtlebot3_gazebo/turtlebot3_drive.h
+/home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/launch/house_world.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/launch/multi_turtlebot3_slam.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/launch/turtlebot3_empty_world.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/launch/.turtlebot3_world_with_camera.launch.swp
@@ -27,7 +28,6 @@
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/launch/turtlebot3_stage_3.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/launch/turtlebot3_world_with_camera.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/launch/turtlebot3_stage_4.launch
-/home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/launch/turt
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/launch/turtlebot3_simulation.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/launch/turtlebot3_gazebo_rviz.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_gazebo/launch/turtlebot3_autorace.launch

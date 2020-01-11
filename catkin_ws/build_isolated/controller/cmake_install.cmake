@@ -182,6 +182,17 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/controller" TYPE FILE FILES "/home/robot/Mapping-Robot/catkin_ws/src/controller/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/controller" TYPE PROGRAM FILES
+    "/home/robot/Mapping-Robot/catkin_ws/src/controller/src/localnavigator_node.py"
+    "/home/robot/Mapping-Robot/catkin_ws/src/controller/src/pathfollow_node.py"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/controller/launch" TYPE DIRECTORY FILES "/home/robot/Mapping-Robot/catkin_ws/src/controller/launch/")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/robot/Mapping-Robot/catkin_ws/build_isolated/controller/gtest/cmake_install.cmake")
