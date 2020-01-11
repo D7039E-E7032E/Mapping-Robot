@@ -11,4 +11,5 @@
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_nav_cartographer/cmake/turtlebot3_nav_cartographerConfig.cmake
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_nav_cartographer/cmake/turtlebot3_nav_cartographerConfig-version.cmake
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_nav_cartographer/package.xml
+/home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_nav_cartographer/launch/multi_turtlebot3.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/turtlebot3_nav_cartographer/launch/turtlebot3.launch

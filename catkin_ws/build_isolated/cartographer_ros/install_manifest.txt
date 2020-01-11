@@ -17,6 +17,7 @@
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/cartographer_ros/launch/demo_backpack_3d_localization.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/cartographer_ros/launch/visualize_pbstream.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/cartographer_ros/launch/demo_backpack_2d_localization.launch
+/home/robot/Mapping-Robot/catkin_ws/install_isolated/share/cartographer_ros/launch/multi_turtlebot3.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/cartographer_ros/launch/backpack_3d.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/cartographer_ros/launch/offline_backpack_2d.launch
 /home/robot/Mapping-Robot/catkin_ws/install_isolated/share/cartographer_ros/launch/demo_pr2.launch
