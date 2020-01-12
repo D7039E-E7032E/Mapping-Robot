@@ -44,7 +44,7 @@ def get_rotation (msg):
 
 rospy.init_node('localnavigator_node')
 
-sub = rospy.Subscriber ('/move_base/DWAPlannerROS/global_plan', Path, get_dir)
+sub = rospy.Subscriber ('/move_base/NavfnROS/plan', Path, get_dir)
 sub2= rospy.Subscriber ('/scan', LaserScan, get_rang)
 sub3 = rospy.Subscriber ('/odom', Odometry, get_rotation)
 pub = rospy.Publisher('pathv', Pathvector, queue_size=1)
