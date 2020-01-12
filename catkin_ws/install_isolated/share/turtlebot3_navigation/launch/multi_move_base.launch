@@ -16,9 +16,7 @@
     <rosparam file="$(find turtlebot3_navigation)/param/move_base_params_multi.yaml" command="load" />
     <rosparam file="$(find turtlebot3_navigation)/param/dwa_local_planner_params_$(arg model)_multi.yaml" command="load" />
     <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
-    <remap from="odom" to="tb3_0/$(arg odom_topic)"/>
-    <remap from="base_footprint" to="tb3_0/base_footprint"/>
-    <remap from="tb3_0/map" to="map"/>
+    <remap from="odom" to="$(arg odom_topic)"/>
     <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />
   </node>
 </launch>
