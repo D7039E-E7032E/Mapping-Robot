@@ -1,0 +1,8 @@
+prefix=/home/robot/Mapping-Robot/catkin_ws/install_isolated
+
+Name: controller
+Description: Description of controller
+Version: 0.0.0
+Cflags: -I/home/robot/Mapping-Robot/catkin_ws/install_isolated/include
+Libs: -L/home/robot/Mapping-Robot/catkin_ws/install_isolated/lib 
+Requires: message_runtime roscpp rospy std_msgs nav_msgs geometry_msgs

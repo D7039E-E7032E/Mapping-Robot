@@ -1,0 +1,8 @@
+prefix=/home/robot/Mapping-Robot/catkin_ws/install_isolated
+
+Name: turtlebot3_nav_cartographer
+Description: Description of turtlebot3_nav_cartographer
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/robot/Mapping-Robot/catkin_ws/install_isolated/lib 
+Requires: amcl cartographer_ros move_base robot_state_publisher rviz

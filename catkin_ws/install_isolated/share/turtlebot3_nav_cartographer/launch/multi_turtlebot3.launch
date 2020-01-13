@@ -1,0 +1,54 @@
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <!-- Turtblebot3 Arguments -->
+  <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="open_rviz" default="true"/>
+  <arg name="ns" default="tb3_0"/>
+  <env name="MY_ROBOT" value="$(arg ns)"/>
+
+  <group ns="$(arg ns)">
+  <!-- Gazebo Arguments 
+  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world_with_camera.launch"/>
+  -->
+  <!-- Turtlebot3 -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf_with_sensor.xacro" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  
+  <!-- AMCL -->
+    <include file="$(find turtlebot3_navigation)/launch/amcl.launch"/>
+  
+  <!-- move_base -->
+    <include file="$(find turtlebot3_navigation)/launch/multi_move_base.launch">
+      <arg name="model" value="$(arg model)"/>
+    </include> 
+  
+  <!-- Scott Local Controller -->
+    <include file="$(find controller)/launch/simple.launch"/>
+      
+  
+  <!-- rviz 
+  <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="$(find turtlebot3_nav_cartographer)/rviz/lidar_turtlebot3.rviz"/>
+  </group> 
+  -->
+  <!-- Cartographer -->
+    <include file="$(find cartographer_ros)/launch/multi_turtlebot3.launch"/>
+  </group>
+</launch>
